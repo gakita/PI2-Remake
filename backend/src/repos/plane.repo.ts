@@ -2,7 +2,7 @@ import { PrismaClient} from "@prisma/client"
 
 const p = new PrismaClient()
 
-export const planeRepo = {
+export const createPlaneRepo = {
     async createPlane(
         data: {
             producer: string,
