@@ -1,13 +1,12 @@
 import express from "express"
-//@ts-ignore
-import { PrismaClient } from "@prisma/client"
-import "dotenv/config"
+import routes from "./src/routes/routes"
 
 const app = express()
-const port = process.env.PORT
-const prisma =  new PrismaClient()
+
 
 app.use(express.json())
+app.use("/api", routes)
+// app.use(errorHandler)
 
 app.get("/api/getAllUsers", async(req,res) =>{
     try{
@@ -79,21 +78,7 @@ app.get("/api/getAllPlanes", async(req,res) =>{
 
 // REGISTROS DE USUARIOS AVIOES CIDADES E TRAJETOS
 
-app.post("/api/registerPlane", async (req,res) =>{
-    try{
-        const {producer, model} = req.body
-        const createPlane = await prisma.plane.create({
-            data: {
-                producer,
-                model
-            }
-        })
-        return res.status(201).json(createPlane)
-    }catch(error){
-        console.log(error)
-        return res.status(500).json(error)
-    }
-})
+
 
 app.post("/api/registerUser", async (req,res) =>{
     try{
@@ -129,11 +114,4 @@ app.post("/api/registerCity", async (req,res) => {
     }
 })
 
-app.use((req,res) =>{
-    return res.status(404).json("Não achei porra")
-})
-
-
-app.listen(port, () =>{
-    console.log(`Server running on port ${port}`)
-})
+export default app
