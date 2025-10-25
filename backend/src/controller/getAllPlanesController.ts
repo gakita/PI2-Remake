@@ -1,9 +1,9 @@
 import { getAllPlanesService} from "../services/getAllPlanesService"
-import { Response } from "express"
+import { Response, Request } from "express"
 
-export async function getAllPlanesController(res:Response){
+export const getAllPlanesController = async (req:Request, res:Response) =>{
     try{
-        const  planes = await getAllPlanesService()
+        const planes = await getAllPlanesService()
         return res.status(200).json(planes)
     }catch(error){
         console.log(error)

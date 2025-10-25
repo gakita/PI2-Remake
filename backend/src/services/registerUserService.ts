@@ -1,4 +1,4 @@
-import { userRepo} from "../repos/user.repo"
+import { userRepo} from "../repos/registerUser.repo"
 
 export const registerUserService = async (
     data: {
