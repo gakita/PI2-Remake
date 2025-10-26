@@ -5,6 +5,7 @@ import { getAllUsersController } from "../controller/getAllUsersController"
 import { getAllPlanesController } from "../controller/getAllPlanesController"
 import { registerCityController } from "../controller/registerCityController"
 import { getUserByIDContrtoller} from "../controller/getUserByIDController"
+import { getAllCitiesController } from "../controller/getAllCitiesController"
 
 const router = express.Router()
 
@@ -25,5 +26,9 @@ router.get("/users/:id", getUserByIDContrtoller)
 
 // Listar Avioes
 router.get("/planes", getAllPlanesController)
+
+// Listar todas as cidades
+
+router.get("/cities", getAllCitiesController)
 
 export default router
