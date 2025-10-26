@@ -1,0 +1,61 @@
+nav{
+    background-color: lightblue;
+    padding: 10px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+}
+
+nav div{
+    display: flex;
+    gap: 10px;
+}
+
+
+nav div h1{
+    font-size: 20px
+}
+
+nav div img{
+    width: 20px;
+}
+
+nav ul{
+    list-style: none;
+    display: flex;
+    gap: 10px;
+    margin-inline:20px;
+}
+
+nav ul li{
+    margin-right: 10px;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color:#fff;
+
+
+    &:hover{
+        color: #e1e1e1;
+    }
+}
+
+nav ul li a.active{
+    color: #e1e1e1;
+}
+
+.button-login{
+    background-color: transparent;
+    border:1px solid white;
+    color:white;
+    padding: 5px 10px;
+    cursor: pointer;
+
+    &:hover{
+        background-color: white;
+        color: #333;
+    }
+}
