@@ -9,13 +9,18 @@ section > .navbar{
 }
 
 nav{
-        display: flex;
+        width: 90%;
+        padding: 1rem;
+        margin: auto;
+}
+
+.inner-nav{
+            display: flex;
         justify-content: space-between;
         align-items: center;
         gap: 10px;
-        width: 80%;
-        margin: 1rem auto;
-    }
+}
+
 
 nav div{
     display: flex;

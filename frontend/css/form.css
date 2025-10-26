@@ -1,0 +1,51 @@
+.hero form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:1rem;
+    flex-wrap:wrap;
+}
+
+.hero .overlay{
+    background-color: rgba(255,255,255,0.1);
+    backdrop-filter: blur(5px);
+    border-radius:12px;
+}
+
+.form-group{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:1rem;
+    flex-wrap:wrap;
+    padding:2rem;
+}
+
+.input-group{
+    display: flex;
+    flex-direction: column;
+    gap:.3rem;
+}
+
+label{
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+input[type="text"]{
+    padding: .7rem;
+    border-radius: 12px;
+    border: none;
+}
+
+button[type="submit"]{
+    padding: .5rem;
+    border-radius: 12px;
+    border: none;
+    background-color: #ffa500;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+}
