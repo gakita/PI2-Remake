@@ -1,5 +1,6 @@
 import express from "express"
 import routes from "./src/routes/routes"
+// @ts-ignore
 import cors from "cors"
 
 const app = express()
