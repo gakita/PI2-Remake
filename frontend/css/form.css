@@ -56,11 +56,15 @@ form{
     color: var(--color-background-primary);
 }
 
-input[type="text"]{
+select{
     border-radius:12px;
     border:none;
     height:3.5rem;
     font-size:1rem;
+
+    &:focus{
+        outline: var(--color-accent) solid 1px;
+    }
 }
 
 .input-group p{
@@ -80,6 +84,7 @@ form button[type="submit"]{
     height:3.5rem;
     flex-grow:1;
     cursor:pointer;
+    font-size:.875rem;
 
     &:hover{
         background-color: var(--color-accent-hover);

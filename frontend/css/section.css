@@ -5,7 +5,7 @@
     overflow: hidden;
     
     /* Esta é a linha corrigida */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../assets/img.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../assets/images/img.jpg");
     
     background-size: cover;
     background-position: center;
