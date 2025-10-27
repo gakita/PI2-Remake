@@ -1,66 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I Cant Breath CIA</title>
-    <link rel="stylesheet" href="../css/index.css">    
-</head>
-<body>
-    <section>
-        <div class="img-container">
-            <img src="../assets/image.png" alt="">
-            <div></div>
-        </div>  
-        <div class="navbar">
-            <nav>
-           <div class="inner-nav">
-                <div onclick="window.location.href = '../pages/index.html'">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-airplane-fill" viewBox="0 0 16 16">
-                        <path d="M6.428 1.151C6.708.591 7.213 0 8 0s1.292.592 1.572 1.151C9.861 1.73 10 2.431 10 3v3.691l5.17 2.585a1.5 1.5 0 0 1 .83 1.342V12a.5.5 0 0 1-.582.493l-5.507-.918-.375 2.253 1.318 1.318A.5.5 0 0 1 10.5 16h-5a.5.5 0 0 1-.354-.854l1.319-1.318-.376-2.253-5.507.918A.5.5 0 0 1 0 12v-1.382a1.5 1.5 0 0 1 .83-1.342L6 6.691V3c0-.568.14-1.271.428-1.849"/>
-                    </svg>
-                    <h1>I Cant Breath</h1>
-                </div>
-                <ul>
-                    <li><a href="../pages/index.html">Minhas Viagens</a></li>
-                    <li><a href="/about">Ofertas</a></li>
-                    <li><a href="/login">Login</a></li>
-                </ul>
-           </div>
-        </nav>
-        <div class="separator"></div>
-        <div class="container">
-            <div class="hero">
-                <div class="title">
-                    <h1>Encontre o seu próximo destino</h1>
-                    <p>Busque voos para qualquer lugar do mundo</p>
-                </div>
-                <div class="overlay">
-                    <form method="post">
-                        <div class="form-group">
-                            <div class="input-group">
-                                <label for="origem">Origem</label>
-                                <input type="text" placeholder="Cidade ou Aeroporto">
-                            </div>
-                            <div class="input-group">
-                                <label for="destino">Destino</label>
-                                <input type="text" placeholder="Cidade ou Aeroporto">
-                            </div>
-                        </div>
-                        <button type="submit">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-                            </svg>
-                            Buscar
-                        </button>
-                    </form>
-                </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cant Breath Airways</title>
+    <link rel="stylesheet" href="../css/index.css" />
+  </head>
+
+  <body>
+    <!--REMAKE DO INDEX.HTML DO PROJETO INTEGRADOR 2-->
+    <div class="main-content">
+      <section id="header">
+        <header class="header">
+          <div class="header-container">
+            <div id="logo">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-airplane-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M6.428 1.151C6.708.591 7.213 0 8 0s1.292.592 1.572 1.151C9.861 1.73 10 2.431 10 3v3.691l5.17 2.585a1.5 1.5 0 0 1 .83 1.342V12a.5.5 0 0 1-.582.493l-5.507-.918-.375 2.253 1.318 1.318A.5.5 0 0 1 10.5 16h-5a.5.5 0 0 1-.354-.854l1.319-1.318-.376-2.253-5.507.918A.5.5 0 0 1 0 12v-1.382a1.5 1.5 0 0 1 .83-1.342L6 6.691V3c0-.568.14-1.271.428-1.849"
+                />
+              </svg>
+              <h2>Cant Breath Airways</h2>
             </div>
-        </div>
-        </div>
-    </section>
-    <main>
-        <div>teste</div>
-    </main>
-</body>
+            <ul>
+              <li><a href="#">Minhas Viagens</a></li>
+              <li><a href="#">Ofertas</a></li>
+              <li><a href="#">Login</a></li>
+            </ul>
+          </div>
+          <div class="separator"></div>
+          <main class="searchGroup">
+            <div id="searchGroup" class="max-width">
+              <div class="title">
+                <h1>Encontre sua próxima viagem</h1>
+                <h2>Busque voos para todos os lugares do mundo</h2>
+              </div>
+              <div class="form">
+                <form method="post">
+                  <label class="input-group">
+                    <p>Origem</p>
+                    <input type="text" />
+                  </label>
+                  <label class="input-group">
+                    <p>Destino</p>
+                    <input type="text" />
+                  </label>
+                  <button type="submit">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-search"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
+                      />
+                    </svg>
+                    Buscar
+                  </button>
+                </form>
+              </div>
+            </div>
+          </main>
+        </header>
+      </section>
+      <section id="hero">
+        teste
+      </section>
+    </div>
+  </body>
 </html>

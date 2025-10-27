@@ -1,29 +1,13 @@
-section{
+.header {
     position: relative;
     width: 100%;
-    height: 55vh;
+    height: 100vh;
     overflow: hidden;
-    margin: 0 auto;
-}
-
-.img-container{
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-
-section .img-container img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-section .img-container div{
-    position: absolute;
-    top:0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,.3);
-    z-index: 1;
+    
+    /* Esta é a linha corrigida */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../assets/img.jpg");
+    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
