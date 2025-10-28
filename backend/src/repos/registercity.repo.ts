@@ -6,8 +6,8 @@ export async function registerCityRepo (
     data: {
         name: string,
         country: string,
-        state: string
+        imagePath: string
     }
 ){
-    return p.cities.create({data})
+    return p.city.create({data})
 }

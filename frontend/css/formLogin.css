@@ -1,0 +1,20 @@
+.form{
+    display: flex;
+    flex-direction: column;
+}
+
+.form div{
+    margin-block:1rem;
+}
+
+
+form{
+    display:flex;
+    flex-direction: column;
+    gap:1rem;
+}
+
+.input-group{
+    display:flex;
+    flex-direction: column;
+}

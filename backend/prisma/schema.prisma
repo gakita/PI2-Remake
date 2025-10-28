@@ -16,29 +16,56 @@ datasource db {
 
 model User {
   id    Int @id @default(autoincrement())
-  email String 
+  email String @unique
   name  String
   password String
+  avatarPath String? @default("default-avatar.png")
   createdAt DateTime @default(now())
   tickets Ticket[]
 }
 
+
+// Adicione o campo de imagem à tabela City
+model City {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  country   String
+  createdAt DateTime @default(now())
+  imagePath String?  @default("https://images.unsplash.com/photo-1511485977113-f34c92461ad9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80")// Caminho para a imagem da cidade
+  fromTrips Trip[]   @relation("FromCity")
+  toTrips   Trip[]   @relation("ToCity")
+}
+
+// Nova tabela de viagens
+model Trip {
+  id              Int      @id @default(autoincrement())
+  fromCityId      Int
+  fromCity        City     @relation("FromCity", fields: [fromCityId], references: [id])
+  toCityId        Int
+  toCity          City     @relation("ToCity", fields: [toCityId], references: [id])
+  departureDate   DateTime
+  returnDate      DateTime?
+  basePrice       Float
+  availableSeats  Int
+  tickets         Ticket[]
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@unique([fromCityId, toCityId, departureDate])
+}
+
+// Atualize o modelo de Ticket para se relacionar com Trip
 model Ticket {
-  tiketCode String @id @default(cuid())
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id])
+  tripId    Int
+  trip      Trip     @relation(fields: [tripId], references: [id])
+  seatCount Int
+  totalPrice Float
+  status    String   @default("PENDING") // PENDING, CONFIRMED, CANCELLED
   createdAt DateTime @default(now())
-  date DateTime
-  userId Int
-  user User @relation(fields: [userId], references: [id])
-  cityId Int
-  city Cities @relation(fields: [cityId], references: [id])
-}
-
-model Cities {
-  id Int @id @default(autoincrement())
-  name String
-  country String
-  state String
-  tickets Ticket[]
+  updatedAt DateTime @updatedAt
 }
 
 model Plane {
