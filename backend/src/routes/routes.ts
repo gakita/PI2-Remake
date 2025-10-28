@@ -25,7 +25,7 @@ router.post("/registerPlane", registerPlaneController)
 router.post("/registerUser", registerUserController)
 
 // Registrar Cidade
-router.post("/registerCity",upload.single("imagePath"),express.static("uploads"), registerCityController)
+router.post("/registerCity", upload.single("imagePath"), registerCityController)
 
 // Listar Usuarios
 router.get("/users", getAllUsersController)
