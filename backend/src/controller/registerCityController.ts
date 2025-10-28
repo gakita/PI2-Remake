@@ -1,10 +1,9 @@
 import { registerCityService} from "../services/registerCityService"
-import { upload } from "../middleware/uploadPhotos"
 import {Request, Response} from "express"
 
 export async function registerCityController(req:Request, res:Response){
     try {
-        const { name, country} = req.body
+        const { name, country } = req.body
         const imagePath = req.file?.path
         if(!imagePath){
             return res.status(400).json({message: "Imagem nao encontrada"})
@@ -13,6 +12,6 @@ export async function registerCityController(req:Request, res:Response){
         return res.status(201).json(registerCity)
     }catch(error:any){
         console.log(error)
-        return res.status(500).json(error.message)
+        return res.status(500).json(`${error.message}\n${error}\n ${error.field}`)
     }
 }
