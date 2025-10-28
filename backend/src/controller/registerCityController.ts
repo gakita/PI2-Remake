@@ -1,4 +1,5 @@
 import { registerCityService} from "../services/registerCityService"
+import { upload } from "../middleware/uploadPhotos"
 import {Request, Response} from "express"
 
 export async function registerCityController(req:Request, res:Response){
