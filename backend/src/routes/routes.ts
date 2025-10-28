@@ -6,8 +6,17 @@ import { getAllPlanesController } from "../controller/getAllPlanesController"
 import { registerCityController } from "../controller/registerCityController"
 import { getUserByIDContrtoller} from "../controller/getUserByIDController"
 import { getAllCitiesController } from "../controller/getAllCitiesController"
+import { upload } from "../middleware/uploadPhotos"
+import { deleteCityController } from "../controller/deleteCityController"
+import { deleteAllCitiesController } from "../controller/deleteAllCitiesController"
 
 const router = express.Router()
+
+// Deletar Cidade
+router.delete("/deleteCity/:id", deleteCityController)
+
+// Deletar todas as cidades
+router.delete("/deleteAllCities", deleteAllCitiesController)
 
 // Registrar Aviao
 router.post("/registerPlane", registerPlaneController)
@@ -16,7 +25,7 @@ router.post("/registerPlane", registerPlaneController)
 router.post("/registerUser", registerUserController)
 
 // Registrar Cidade
-router.post("/registerCity", registerCityController)
+router.post("/registerCity",upload.single("imagePath"),express.static("uploads"), registerCityController)
 
 // Listar Usuarios
 router.get("/users", getAllUsersController)
