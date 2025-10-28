@@ -4,7 +4,7 @@ export const registerCityService = (
     data: {
         name: string,
         country: string,
-        state: string
+        imagePath: string
     }
 ) => {
     return registerCityRepo(data)
