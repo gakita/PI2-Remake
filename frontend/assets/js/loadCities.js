@@ -23,7 +23,7 @@ async function loadCities(){
         cities.forEach(city =>{
             const option = document.createElement("option")
             option.value = city.id
-            option.textContent = city.name
+            option.textContent = `${city.name}, ${city.country}`
             selectedOriginCity.appendChild(option)
             selectedDestinationCity.appendChild(option.cloneNode(true))
         })
