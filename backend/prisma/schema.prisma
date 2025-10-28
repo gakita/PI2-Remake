@@ -43,8 +43,8 @@ model Trip {
   fromCity        City     @relation("FromCity", fields: [fromCityId], references: [id])
   toCityId        Int
   toCity          City     @relation("ToCity", fields: [toCityId], references: [id])
-  departureDate   DateTime
-  returnDate      DateTime?
+  departureDate   DateTime @db.Time()
+  returnDate      DateTime? @db.Time()
   basePrice       Float
   availableSeats  Int
   tickets         Ticket[]
