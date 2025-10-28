@@ -11,7 +11,7 @@ export function createCard(title, price,imagePath){
     <h2 class="card-title" id="card-title">${title}</h2>
     <div class="card-price">
       <p>A partir de R$:  </p>
-      <span id="card-price">${price}</span>
+      <span id="card-price" class="highlight-text">${price}</span>
     </div>
     </div>
   </div>
