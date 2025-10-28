@@ -1,0 +1,15 @@
+#hero{
+    padding-block: 6rem;
+    margin-top:20px
+}
+
+#hero-container{
+    padding-inline:5rem;
+}
+
+#hero-container h2{
+    color:var(--color-text);
+    font-size:1.875rem;
+    line-height: 2.175rem;
+
+}
