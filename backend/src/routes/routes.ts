@@ -9,14 +9,21 @@ import { getAllCitiesController } from "../controller/getAllCitiesController"
 import { upload } from "../middleware/uploadPhotos"
 import { deleteCityController } from "../controller/deleteCityController"
 import { deleteAllCitiesController } from "../controller/deleteAllCitiesController"
+import { createTripController } from "../controller/createTripController"
+import { getAllTripsController } from "../controller/getAllTripsController"
 
 const router = express.Router()
+
+
+// ROTAS DELETE
 
 // Deletar Cidade
 router.delete("/deleteCity/:id", deleteCityController)
 
 // Deletar todas as cidades
 router.delete("/deleteAllCities", deleteAllCitiesController)
+
+// ROTAS POST
 
 // Registrar Aviao
 router.post("/registerPlane", registerPlaneController)
@@ -26,6 +33,11 @@ router.post("/registerUser", registerUserController)
 
 // Registrar Cidade
 router.post("/registerCity", upload.single("imagePath"), registerCityController)
+
+// Registrar Viagem
+router.post("/registerTrip", createTripController)
+
+// ROTAS GET
 
 // Listar Usuarios
 router.get("/users", getAllUsersController)
@@ -39,5 +51,7 @@ router.get("/planes", getAllPlanesController)
 // Listar todas as cidades
 
 router.get("/cities", getAllCitiesController)
+
+router.get("/trips", getAllTripsController)
 
 export default router
