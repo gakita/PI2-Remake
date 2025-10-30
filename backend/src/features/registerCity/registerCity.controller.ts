@@ -1,7 +1,7 @@
 import { registerCityService} from "./registerCity.service"
-import {Request, Response} from "express"
+import {Request, Response, NextFunction} from "express"
 
-export async function registerCityController(req:Request, res:Response){
+export async function registerCityController(req:Request, res:Response, next:NextFunction){
     try {
         const { name, country } = req.body
         const imagePath = req.file?.path
@@ -11,7 +11,6 @@ export async function registerCityController(req:Request, res:Response){
         const registerCity = await registerCityService({name, country, imagePath})
         return res.status(201).json(registerCity)
     }catch(error:any){
-        console.log(error)
-        return res.status(500).json(`${error.message}\n${error}\n ${error.field}`)
+        next(error)
     }
 }
