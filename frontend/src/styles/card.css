@@ -5,8 +5,96 @@
     flex-direction:column;
     border-radius:10px;
     border:1px solid rgba(0,0,0,0.2);
-    height: 430px;
     width: 430px;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    
+    transition:.3s ease;
+    overflow: hidden;
+    cursor: pointer;
 }
 
+.card:hover img{
+    transform: scale(1.1);
+}
+
+
+.image-overlay{
+    position:relative;
+}
+
+.card:hover .image-overlay{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background-color: rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+
+
+.image-overlay-text{
+    display:none;
+    transition:.3s ease;
+}
+
+.card:hover .image-overlay-text{
+    display:block;
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    top:100%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    color:var(--color-background-primary);
+
+    span{
+        font-size: 2rem;
+    }
+}
+
+
+.card-infos{
+    padding:2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+
+.card-image-container{
+    position: relative;
+    height: 18rem;
+    overflow: hidden;
+}
+
+.card-image-container img{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    overflow: hidden;
+    transition:.5s ease
+}
+
+.card-title{
+    font-size:1.5rem;
+    font-weight: bold;
+    line-height: 1.875rem;
+    color:var(--color-text);
+}
+
+.card-price{
+    display:flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.highlight-text{
+    color:var(--color-primary);
+}
+
+
+#card-price{
+    font-weight: bold;
+}
