@@ -19,9 +19,10 @@ model User {
   email String @unique
   name  String
   password String
-  avatarPath String? @default("default-avatar.png")
+  avatarPath String? @default("default-avatar.svg")
   createdAt DateTime @default(now())
   tickets Ticket[]
+  isAdmin Boolean @default(false)
 }
 
 
