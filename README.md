@@ -341,7 +341,7 @@ Para informações mais detalhadas sobre cada parte do projeto, consulte:
 
 Este projeto está sob a licença ISC.
 
-## 👥 Autores
+## 👥 Autor
 
 [gakita](https://github.com/gakita)
 
