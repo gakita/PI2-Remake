@@ -21,7 +21,7 @@ async function loadTrips(){
         const response = await axios.get("http://localhost:3001/api/cities")
         const trips = response.data
         trips.forEach(cities => {
-            let generatedRandomPrice = (Math.floor(Math.random() * 1000))
+            let generatedRandomPrice = (Math.floor(Math.random() * 10000))
             let card = createCard(cities.name, generatedRandomPrice, cities.imagePath)
             gridCards.appendChild(card.cloneNode(true))
         })
