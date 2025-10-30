@@ -1,18 +1,18 @@
 import express from "express"
-import { registerPlaneController } from "../controller/registerPlaneController"
-import { registerUserController } from "../controller/registerUserController"
-import { getAllUsersController } from "../controller/getAllUsersController"
-import { getAllPlanesController } from "../controller/getAllPlanesController"
-import { registerCityController } from "../controller/registerCityController"
-import { getUserByIDContrtoller} from "../controller/getUserByIDController"
-import { getAllCitiesController } from "../controller/getAllCitiesController"
+import { registerPlaneController } from "../features/registerPlane/registerPlane.controller"
+import { registerUserController } from "../features/registerUser/registerUser.controller"
+import { getAllUsersController } from "../features/getAllUsers/getAllUsers.controller"
+import { getAllPlanesController } from "../features/getAllPlanes/getAllPlanes.controller"
+import { registerCityController } from "../features/registerCity/registerCity.controller"
+import { getUserByIDController} from "../features/getUserByID/getUserByID.controller"
+import { getAllCitiesController } from "../features/getAllCities/getAllCities.controller"
 import { upload } from "../middleware/uploadPhotos"
-import { deleteCityController } from "../controller/deleteCityController"
-import { deleteAllCitiesController } from "../controller/deleteAllCitiesController"
-import { createTripController } from "../controller/createTripController"
-import { getAllTripsController } from "../controller/getAllTripsController"
-import { getTripByIDController } from "../controller/getTripByIDController"
-import { deleteAllUsersController } from "../controller/deleteAllUsersController"
+import { deleteCityController } from "../features/deleteCity/deleteCity.controller"
+import { deleteAllCitiesController } from "../features/deleteAllCities/deleteAllCities.controller"
+import { createTripController } from "../features/createTrip/createTrip.controller"
+import { getAllTripsController } from "../features/getAllTrips/getAllTrips.controller"
+import { getTripByIDController } from "../features/getTripByID/getTripByID.controller"
+import { deleteAllUsersController } from "../features/deleteAllUsers/deleteAllUsers.controller"
 
 const router = express.Router()
 
@@ -48,7 +48,7 @@ router.post("/registerTrip", createTripController)
 router.get("/users", getAllUsersController)
 
 // Buscar Usuario por ID
-router.get("/users/:id", getUserByIDContrtoller)
+router.get("/users/:id", getUserByIDController)
 
 // Listar Avioes
 router.get("/planes", getAllPlanesController)
