@@ -12,6 +12,7 @@ export const getCitiesByNameRepo = async (name: string) => {
                 }
             }
         )
+        return city
     }catch(error){
         console.log(error)
         throw new Error("Error getting city")
