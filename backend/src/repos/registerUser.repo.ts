@@ -1,15 +1,17 @@
-import { PrismaClient} from "@prisma/client"
+import { PrismaClient } from "@prisma/client"
 
 const p = new PrismaClient()
 
-export const userRepo = {
+export const createUserRepo = {
     async createUser(
         data:{
-            name: string,
-            email: string,
-            password: string
+            name:string,
+            email:string,
+            password:string,
+            avatarPath: string,
+            isAdmin: boolean
         }
     ){
-        return p.user.create({ data })
+        return p.user.create({data})
     }
 }
