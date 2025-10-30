@@ -1,0 +1,12 @@
+@import url("global.css");
+
+.card{
+    display:flex;
+    flex-direction:column;
+    border-radius:10px;
+    border:1px solid rgba(0,0,0,0.2);
+    height: 430px;
+    width: 430px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+

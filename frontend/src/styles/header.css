@@ -1,0 +1,44 @@
+@import url("global.css");
+
+#header{
+    position: relative;
+    display:flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header{
+    padding-inline:20px
+}
+
+#logo{
+    display:flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.header-container{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-block:.7rem;
+    color: var(--color-background-primary);
+    width: 80%;
+    margin-inline: auto;
+}
+
+.header-container ul{
+    display:flex;
+    list-style: none;
+    gap:20px;
+}
+
+#header h2{
+    font-weight: normal;
+    letter-spacing: 0px;
+}
+
+#header h2,a{
+    color: var(--color-background-primary);
+}

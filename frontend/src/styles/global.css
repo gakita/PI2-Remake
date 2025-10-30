@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+  /* == Paleta Principal (Azuis) == */
+
+  /* Azul vibrante principal, usado em botões de CTA, links e ícones. */
+  --color-primary: #1890FF;
+  
+  /* Azul mais escuro, usado para botões de admin e navegação ativa. */
+  --color-primary-dark: #0A58A4;
+
+  /* Tom de azul bem claro, usado para fundos de itens ativos/selecionados. */
+  --color-primary-light: #E6F7FF;
+
+
+  /* == Paleta Neutra (Textos e Fundos) == */
+
+  /* Cor principal para textos e títulos (Quase Preto). */
+  --color-text-primary: #1A202C;
+
+  /* Cor secundária para subtítulos e descrições (Cinza Escuro). */
+  --color-text-secondary: #4A5568;
+
+  /* Cor para textos de menor ênfase, como labels (Cinza Médio). */
+  --color-text-tertiary: #718096;
+
+  /* Fundo principal da página e de cartões (Branco). */
+  --color-background-primary: #FFFFFF;
+
+  /* Fundo secundário, usado para o corpo de páginas de admin (Cinza Claro). */
+  --color-background-secondary: #F7FAFC;
+
+  /* Cor padrão para bordas de inputs e divisórias. */
+  --color-border: #E2E8F0;
+
+
+  /* == Paleta de Acentos e Status == */
+  
+  /* Cor de acento (Amarelo/Laranja), usada em CTAs especiais como "Buscar Voos". */
+  --color-accent: #F5B82E;
+
+  --color-accent-hover: #E5B82E;
+
+  /* Cor de perigo, usada para links de "Delete" e erros. */
+  --color-danger: #E53E3E;
+  
+  /* Cor de status "Disponível" (Verde) para assentos. */
+  --color-status-available: #48BB78;
+
+  /* Cor de status "Espaço Extra" (Amarelo) para assentos. */
+  --color-status-legroom: #ECC94B;
+
+  /* Cor de status "Ocupado" (Cinza) para assentos. */
+  --color-status-occupied: #A0AEC0;
+}
+
+body{
+    font-family: "Poppins", sans-serif;
+    background-color: var(--color-background-primary);
+    color: var(--color-text-primary)
+}
+
+h1,h2,h3{
+    color: var(--color-text-primary)
+}
+
+a{
+    text-decoration:none;
+}
+
+/* UTILS */
+.separator{
+    width: 80%;
+    height: .2px;
+    background-color: rgba(255,255,255,.5);
+    margin-inline: auto;
+}
