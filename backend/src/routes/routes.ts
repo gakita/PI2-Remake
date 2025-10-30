@@ -13,6 +13,8 @@ import { createTripController } from "../features/createTrip/createTrip.controll
 import { getAllTripsController } from "../features/getAllTrips/getAllTrips.controller"
 import { getTripByIDController } from "../features/getTripByID/getTripByID.controller"
 import { deleteAllUsersController } from "../features/deleteAllUsers/deleteAllUsers.controller"
+import { getCitiesByNameController } from "../features/getCitiesByName/getCitiesByName.controller"
+
 
 const router = express.Router()
 
@@ -55,6 +57,8 @@ router.get("/planes", getAllPlanesController)
 
 // Listar todas as cidades
 router.get("/cities", getAllCitiesController)
+
+router.get("/cities/:name", getCitiesByNameController)
 
 // Buscar Cidade por ID
 router.get("/cities/:id", getAllTripsController)
