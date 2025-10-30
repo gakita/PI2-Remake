@@ -3,6 +3,7 @@ import routes from "./src/routes/routes"
 // @ts-ignore
 import cors from "cors"
 import path from "path"
+import { errorHandler } from "./src/middleware/errorHandler"
 
 const app = express()
 
@@ -12,6 +13,6 @@ app.use('/api/uploads/', express.static(path.join(__dirname, 'uploads')))
 
 app.use(express.json())
 app.use("/api", routes)
-// app.use(errorHandler)
+app.use(errorHandler)
 
 export default app
