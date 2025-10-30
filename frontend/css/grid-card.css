@@ -28,9 +28,12 @@
 .card-image-container{
     width:100%;
     height:20rem;
+    max-height: 20rem;
 }
 
 .card-image-container img{
+    
+    max-height: 20rem;
     width:100%;
     height:100%;
     object-fit: cover;
