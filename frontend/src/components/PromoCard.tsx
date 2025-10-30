@@ -5,7 +5,7 @@ import { NormalizePath } from "../hooks/NormalizePath";
 
 let apiURL = import.meta.env.VITE_API_URL
 
-function PromoCard({title,country,imagePath}: any){
+function PromoCard({title,price,imagePath}: any){
     const normalizedPath = NormalizePath(imagePath)
     return(
         <>
@@ -16,7 +16,7 @@ function PromoCard({title,country,imagePath}: any){
             <div className="card-infos">
                 <h2 className="card-title" id="card-title">{title}</h2>
                 <div className="card-price">
-                <p>A partir de R$:  <span id="card-price" className="highlight-text">{country}</span></p>
+                <p>A partir de : <span id="card-price" className="highlight-text">{price}</span></p>
             </div>
             </div>
         </div>
@@ -28,7 +28,7 @@ function PromoCardList(){
     const [trips, setTrips] = useState<any[]>([])
     
     useEffect(() => {
-        api.get("/cities")
+        api.get("/trips")
         .then(response => {
             setTrips(response.data)
         })
@@ -37,12 +37,12 @@ function PromoCardList(){
     return(
         <>
         <div id="grid-cards">
-            {trips.map((trip,id) => (
+            {trips.map((trip) => (
                 <PromoCard 
-                key={id}
-                title={trip.name}
-                country={trip.country}
-                imagePath={trip.imagePath}
+                key={trip.id}
+                title={trip.toCity.name}
+                price= {trip.basePrice.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+                imagePath={trip.toCity.imagePath}
                 />
             ))} 
         </div>
@@ -50,5 +50,4 @@ function PromoCardList(){
         </>
     )
 }
-
 export default PromoCardList
