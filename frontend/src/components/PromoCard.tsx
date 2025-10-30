@@ -11,10 +11,9 @@ function PromoCard({title,price,imagePath}: any){
         <>
         <div className="card" >
             <div className="card-image-container">
-                <div className="image-overlay">
-                    <div className="image-overlay-text">
-                        <span>{title}</span>
-                    </div>
+                <div className="image-overlay"></div>
+                <div className="image-overlay-text">
+                    <span>{title}</span>
                 </div>
                 <img src={`${apiURL}/${normalizedPath}`} alt={title} />
             </div>
