@@ -1,0 +1,25 @@
+section{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image:linear-gradient(to bottom, #fff, #94a8bd)
+}
+
+.red{
+    color:#e14a4a;
+}
+
+.blue{
+    color:#4a90e1;
+}
+
+.input-group a{
+    color:#4a90e1;
+    transition:.3s;
+    &:hover{
+        color:#365b85;
+    }
+}
