@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react"
 import api from "../Server"
+import { useForm } from "react-hook-form"
 
 export default function HeaderIndexPage(){
 
-    const [cities, setCity] = useState<any[]>([]);
-    const [origin, setOrigin] = useState<string>("");
-    const [destiny, setDestiny] = useState<string>("");
+    const {register, handleSubmit, formState: {errors}} = useForm()
+
+    const [cities, setCity] = useState<any[]>([])
 
     useEffect(() => {
         api.get("/cities")
@@ -17,6 +18,17 @@ export default function HeaderIndexPage(){
     })
     }, [])
 
+    const onSubmit = async (data:any) => {
+      try{
+        const result = await api.get(`/trips/name/${data.name}`, data)
+        console.log(data)
+
+        console.log(result.data)
+      }catch(error:any){
+        console.log(data.name)
+        console.log(error.message)
+      }
+    }
     return(
         <section id="header">
         <header className="header">
@@ -50,24 +62,26 @@ export default function HeaderIndexPage(){
                 <h2>Busque voos para todos os lugares do mundo</h2>
               </div>
               <div className="form">
-                <form method="post">
+                <form method="post" onSubmit={handleSubmit(onSubmit)}>
                   <label className="input-group" htmlFor="origin">
                     <p>Origem</p>
-                    <select onChange={e => setOrigin(e.currentTarget.value)}>
-                      <option value={origin} defaultValue="Cidade ou Aeroporto">Cidade ou Aeroporto</option>
+                    <select id= "origin" {...register("name")}>
+                      <option value="" defaultValue="Cidade ou Aeroporto">Cidade ou Aeroporto</option>
                       {Array.isArray(cities) && cities.map(city => (
                         <option key={city.id} value={city.name}>{city.name}</option>
                       ))}
                     </select>
+                    {errors.origin && <span>{errors.origin.message}</span>}
                   </label>
                   <label className="input-group" htmlFor="destiny">
                     <p>Destino</p>
-                    <select onChange={e => setDestiny(e.currentTarget.value)}>
-                      <option value={destiny} defaultValue="Cidade ou Aeroporto">Cidade ou Aeroporto</option>
+                    <select {...register("destiny")}>
+                      <option value="" defaultValue="Cidade ou Aeroporto">Cidade ou Aeroporto</option>
                       {Array.isArray(cities) && cities.map(city => (
-                        <option key={city.id} value={city.name}>{city.name}</option>
+                        <option key={city.id} value={city.id}>{city.name}</option>
                       ))}
                     </select>
+                    {errors.destiny && <span>{errors.destiny.message}</span>}
                   </label>
                   <button type="submit">
                     <svg
