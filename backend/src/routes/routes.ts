@@ -16,7 +16,7 @@ import { deleteAllUsersController } from "../features/deleteAllUsers/deleteAllUs
 import { getCitiesByNameController } from "../features/getCitiesByName/getCitiesByName.controller"
 import { getUserByEmailController } from "../features/getUserByEmail/getUserByEmail.controller"
 import { loginAuthController } from "../features/Auth/loginAuth.controller"
-
+import { getTripByNameController } from "../features/getTripByName/getTripByName.controller"
 
 const router = express.Router()
 
@@ -63,7 +63,7 @@ router.get("/planes", getAllPlanesController)
 // Listar todas as cidades
 router.get("/cities", getAllCitiesController)
 
-router.get("/cities/:name", getCitiesByNameController)
+router.get("/cities/name/:name", getCitiesByNameController)
 
 // Buscar Cidade por ID
 router.get("/cities/:id", getAllTripsController)
@@ -74,7 +74,7 @@ router.get("/trips", getAllTripsController)
 // Buscar Voo por ID
 router.get("/trips/:id", getTripByIDController)
 
-
+router.get("/trips/name/:name", getTripByNameController)
 
 
 // ROTA LOGIN
