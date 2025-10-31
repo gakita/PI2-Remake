@@ -14,6 +14,8 @@ import { getAllTripsController } from "../features/getAllTrips/getAllTrips.contr
 import { getTripByIDController } from "../features/getTripByID/getTripByID.controller"
 import { deleteAllUsersController } from "../features/deleteAllUsers/deleteAllUsers.controller"
 import { getCitiesByNameController } from "../features/getCitiesByName/getCitiesByName.controller"
+import { getUserByEmailController } from "../features/getUserByEmail/getUserByEmail.controller"
+import { loginAuthController } from "../features/Auth/loginAuth.controller"
 
 
 const router = express.Router()
@@ -52,6 +54,9 @@ router.get("/users", getAllUsersController)
 // Buscar Usuario por ID
 router.get("/users/:id", getUserByIDController)
 
+// Buscar Usuario por Email
+router.get("/users/email/:email", getUserByEmailController)
+
 // Listar Avioes
 router.get("/planes", getAllPlanesController)
 
@@ -68,5 +73,12 @@ router.get("/trips", getAllTripsController)
 
 // Buscar Voo por ID
 router.get("/trips/:id", getTripByIDController)
+
+
+
+
+// ROTA LOGIN
+
+router.post("/auth/login",loginAuthController)
 
 export default router
