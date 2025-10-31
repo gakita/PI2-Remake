@@ -71,11 +71,12 @@ router.get("/cities/:id", getAllTripsController)
 // Listar todos os voos
 router.get("/trips", getAllTripsController)
 
+
+// Buscar voo por parametro
+router.get("/trips/search", getTripByNameController)
+
 // Buscar Voo por ID
 router.get("/trips/:id", getTripByIDController)
-
-router.get("/trips/name/:name", getTripByNameController)
-
 
 // ROTA LOGIN
 
