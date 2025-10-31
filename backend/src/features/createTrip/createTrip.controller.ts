@@ -1,6 +1,5 @@
 import { createTripService } from "./createTrip.service";
 import { Request, Response, NextFunction } from "express";
-import { errorHandler } from "../../middleware/errorHandler";
 
 export async function createTripController(req: Request, res: Response, next: NextFunction){
     try{
