@@ -39,7 +39,7 @@ export default function HeaderIndexPage(){
             <ul>
               <li><a href="#">Minhas Viagens</a></li>
               <li><a href="#">Ofertas</a></li>
-              <li><a href="login_client.html">Login</a></li>
+              <li><a href="/login">Login</a></li>
             </ul>
           </div>
           <div className="separator"></div>
