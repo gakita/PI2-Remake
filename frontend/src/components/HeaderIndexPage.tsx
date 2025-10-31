@@ -18,14 +18,23 @@ export default function HeaderIndexPage(){
     })
     }, [])
 
-    const onSubmit = async (data:any) => {
-      try{
-        const result = await api.get(`/trips/name/${data.name}`, data)
-        console.log(data)
+    
 
-        console.log(result.data)
+    const onSubmit = async (data:any) => {
+      const params = new URLSearchParams()
+      if(data.origin) params.append('origin', data.origin)
+      if(data.destiny) params.append('destiny', data.destiny)
+
+      if(!data.origin && !data.destiny){
+        alert("Preencha pelo menos um dos campos")
+        return
+      }
+      try{
+        const response = await api.get(`/trips/search?${params.toString()}`)
+        console.log('resposta api:',response.data)
       }catch(error:any){
-        console.log(data.name)
+        console.log('destino:',data.destiny)
+        console.log('origem:',data.origin)
         console.log(error.message)
       }
     }
@@ -65,20 +74,20 @@ export default function HeaderIndexPage(){
                 <form method="post" onSubmit={handleSubmit(onSubmit)}>
                   <label className="input-group" htmlFor="origin">
                     <p>Origem</p>
-                    <select id= "origin" {...register("name")}>
-                      <option value="" defaultValue="Cidade ou Aeroporto">Cidade ou Aeroporto</option>
+                    <select id= "origin" {...register("origin")}>
+                      <option value="" defaultValue="Cidade ou Aeroporto" >Cidade ou Aeroporto</option>
                       {Array.isArray(cities) && cities.map(city => (
-                        <option key={city.id} value={city.name}>{city.name}</option>
+                        <option key={city.id} value={city.name}>{city.name} ({city.country})</option>
                       ))}
                     </select>
                     {errors.origin && <span>{errors.origin.message}</span>}
                   </label>
                   <label className="input-group" htmlFor="destiny">
                     <p>Destino</p>
-                    <select {...register("destiny")}>
+                    <select id="destiny" {...register("destiny")} >
                       <option value="" defaultValue="Cidade ou Aeroporto">Cidade ou Aeroporto</option>
                       {Array.isArray(cities) && cities.map(city => (
-                        <option key={city.id} value={city.id}>{city.name}</option>
+                        <option key={city.id} value={city.name}>{city.name} ({city.country})</option>
                       ))}
                     </select>
                     {errors.destiny && <span>{errors.destiny.message}</span>}
