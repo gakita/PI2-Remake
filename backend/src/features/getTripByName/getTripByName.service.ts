@@ -1,5 +1,5 @@
 import { getTripByNameRepo } from "./getTripByName.repo";
 
-export const getTripByNameService = async (name:string) => {
-    return getTripByNameRepo(name)
+export const getTripByNameService = async ({origin,destiny}: {origin:string,destiny:string}) => {
+    return getTripByNameRepo({origin,destiny})
 }
