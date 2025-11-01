@@ -1,6 +1,6 @@
 import { createUserRepo } from "./registerUser.repo"
-import { registerUserSchema } from "../../schemas/userSchemas/UserValidation.schema"
-import {hashPassword } from "../../utils/hash"
+import { registerUserSchema } from "../../../schemas/userSchemas/UserValidation.schema"
+import {hashPassword } from "../../../utils/hash"
 
 export const registerUserService = async ({name,email,password,avatarPath,isAdmin}:any) =>{
     try{
