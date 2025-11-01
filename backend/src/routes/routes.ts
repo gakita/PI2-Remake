@@ -1,6 +1,6 @@
 import express from "express"
 import { registerPlaneController } from "../features/registerPlane/registerPlane.controller"
-import { registerUserController } from "../features/registerUser/registerUser.controller"
+import { registerUserController } from "../features/Auth/registerUser/registerUser.controller"
 import { getAllUsersController } from "../features/getAllUsers/getAllUsers.controller"
 import { getAllPlanesController } from "../features/getAllPlanes/getAllPlanes.controller"
 import { registerCityController } from "../features/registerCity/registerCity.controller"
@@ -15,7 +15,7 @@ import { getTripByIDController } from "../features/getTripByID/getTripByID.contr
 import { deleteAllUsersController } from "../features/deleteAllUsers/deleteAllUsers.controller"
 import { getCitiesByNameController } from "../features/getCitiesByName/getCitiesByName.controller"
 import { getUserByEmailController } from "../features/getUserByEmail/getUserByEmail.controller"
-import { loginAuthController } from "../features/Auth/loginAuth.controller"
+import { loginAuthController } from "../features/Auth/loginUser/loginAuth.controller"
 import { getTripByNameController } from "../features/getTripByName/getTripByName.controller"
 
 const router = express.Router()
@@ -70,7 +70,6 @@ router.get("/cities/:id", getAllTripsController)
 
 // Listar todos os voos
 router.get("/trips", getAllTripsController)
-
 
 // Buscar voo por parametro
 router.get("/trips/search", getTripByNameController)
