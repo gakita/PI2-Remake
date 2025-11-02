@@ -80,7 +80,7 @@ export default function HeaderIndexPage(){
                         <option key={city.id} value={city.name}>{city.name} ({city.country})</option>
                       ))}
                     </select>
-                    {errors.origin && <span>{errors.origin.message}</span>}
+                    {errors.origin && <span>{errors.origin.message?.toString()}</span>}
                   </label>
                   <label className="input-group" htmlFor="destiny">
                     <p>Destino</p>
@@ -90,7 +90,7 @@ export default function HeaderIndexPage(){
                         <option key={city.id} value={city.name}>{city.name} ({city.country})</option>
                       ))}
                     </select>
-                    {errors.destiny && <span>{errors.destiny.message}</span>}
+                    {errors.destiny && <span>{errors.destiny.message?.toString()}</span>}
                   </label>
                   <button type="submit">
                     <svg
