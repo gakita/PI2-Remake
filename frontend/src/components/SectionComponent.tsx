@@ -5,8 +5,10 @@ function SectionComponent(){
     return(
         <section id="hero">
             <div id="hero-container">
-              <h2>Ofertas Imperdíveis</h2>
-              <PromoCardList/>  
+              <div className="container-promo-cards">
+                    <h2>Ofertas Imperdíveis</h2>
+                    <PromoCardList/>
+                </div>  
             </div>
         </section>
     )
