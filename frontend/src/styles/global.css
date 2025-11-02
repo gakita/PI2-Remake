@@ -58,6 +58,19 @@
 
   /* Cor de status "Ocupado" (Cinza) para assentos. */
   --color-status-occupied: #A0AEC0;
+
+   /* == Paleta Dark (Extra para Modo Escuro) == */
+  --color-dark-background-primary: #151D23;     /* Fundo principal escuro */
+  --color-dark-background-secondary: #1E2832;   /* Blocos/painéis/fundos alternativos */
+  --color-dark-card-bg: #222D35;                /* Cards/seções */
+  --color-dark-input-bg: #28333c;               /* Inputs/form */
+  --color-dark-border: #37424a;                 /* Bordas e divisórias */
+  --color-dark-text-main: #ffffff;              /* Textos em fundo escuro */
+  --color-dark-text-muted: #96A3AB;             /* Textos de apoio/descritivos no dark */
+  --color-dark-blue-highlight: #23AAFF;         /* Destaques/botões no dark */
+  --color-dark-blue-highlight-alt: #52C7FF;     /* Azul claro de destaque no dark */
+  --color-dark-success: #37c993;                /* Status confirmado/sucesso */
+  --color-dark-warning: #eab648;                /* Status alerta/atrasado */
 }
 
 body{
@@ -72,6 +85,11 @@ h1,h2,h3{
 
 a{
     text-decoration:none;
+}
+
+
+ul{
+    list-style: none;
 }
 
 /* UTILS */
