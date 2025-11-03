@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react"
 import api from "../Server"
 import { useForm } from "react-hook-form"
+import { useAuth } from "../services/AuthContext"
 
 export default function HeaderIndexPage(){
 
     const {register, handleSubmit, formState: {errors}} = useForm()
-
+    let apiURL = import.meta.env.VITE_API_URL
     const [cities, setCity] = useState<any[]>([])
+    const {user, logout} = useAuth()
+    const [dropDown, setDropDown] = useState(false)
 
     useEffect(() => {
         api.get("/cities")
@@ -60,7 +63,23 @@ export default function HeaderIndexPage(){
             <ul>
               <li><a href="#">Minhas Viagens</a></li>
               <li><a href="#">Ofertas</a></li>
-              <li><a href="/login">Login</a></li>
+              {user ? (
+                <>
+                <div className="userCard" onClick={() => setDropDown(!dropDown)}>
+                  <img src={`${apiURL}/uploads/${user.avatarPath}`} alt="" />
+                  <p>{user.name}</p>
+                  {dropDown && (
+                  <div className="userMenu">
+                    <button onClick={logout}>Sair</button>
+                  </div>
+                )}
+                </div>
+                </>
+              ):
+              (
+                <li><a href="/login">Login</a></li>
+              )
+            }
             </ul>
           </div>
           <div className="separator"></div>
