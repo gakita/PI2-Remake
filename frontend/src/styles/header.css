@@ -43,25 +43,3 @@ header{
 #header h2,a{
     color: var(--color-background-primary);
 }
-
-
-.userCard{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-    transition: all .2s ease-in-out;
-    border:1px solid rgba(255,255,255,.5);
-    padding:5px;
-    border-radius: 1rem;
-    &:hover{
-        background-color: #fff;
-        color:var(--color-primary)
-    }
-}
-
-.userCard img{
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-}
