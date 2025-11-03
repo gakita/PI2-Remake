@@ -5,7 +5,7 @@ import { z } from "zod";
 export async function registerUserController (req: Request, res: Response, next: NextFunction){
     try {
         const {name, email, password, isAdmin} = req.body
-        const avatarPath = req.file? req.file.filename : null
+        const avatarPath = req.file? req.file.filename : "default-avatar.svg"
         const user = await registerUserService({name, email, password, isAdmin, avatarPath})
         return res.status(201).json({"user": user})
     } catch (error:any) {
