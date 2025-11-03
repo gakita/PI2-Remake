@@ -16,7 +16,7 @@ export async function loginAuthService(email:string,password:string) {
             throw new Error("Invalid email or password")
         }
         const token = generateJWT(user)
-        return {token}
+        return {token, user}
 
     }catch(error:any){
         throw new Error(error.message)
