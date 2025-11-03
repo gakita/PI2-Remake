@@ -10,6 +10,7 @@ export const registerUserSchema = z.object({
     password: z.string()
     .min(6, "Senha deve ter pelo menos 6 caracteres")
     .max(16, "Senha deve ter no máximo 16 caracteres"),
+    avatarPath: z.any().optional(),
 })
 
 export const loginUserSchema = z.object({
