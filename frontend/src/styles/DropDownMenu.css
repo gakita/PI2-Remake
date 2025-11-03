@@ -1,0 +1,73 @@
+.userCard{
+    position: relative;
+    border:1px solid rgba(255,255,255);
+    padding:5px;
+    border-radius: 1rem;
+    transition: all .2s ease-in-out;
+    &:hover{
+        background-color: #ffffff;
+        color:var(--color-primary);
+    }
+}
+
+.active{
+    background-color: #ffffff;
+    color:var(--color-primary);
+}
+
+.user-info{
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+
+.userCard img{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+
+.userMenu{
+    position: absolute;
+    margin-top: 5px;
+    width: 100%;
+    height: 150px;
+    background-color: var(--color-background-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 100%;
+    right: 0;
+    border-radius: 1rem;
+}
+
+.userMenu ul{
+    position: absolute;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    z-index: 2;
+}
+
+.userMenu ul li{
+    text-align: center;
+    width: 100%;
+    cursor: pointer;
+}
+
+.userMenu ul li a{
+    text-decoration: none;
+    color:var(--color-primary);
+}
+
+.userMenu ul li a:hover{
+    color:var(--color-primary-dark);
+}
+
+.userMenu ul li:hover{
+    background-color: #ccc;
+}
