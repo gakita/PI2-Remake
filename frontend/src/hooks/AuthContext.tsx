@@ -1,27 +1,5 @@
-import {createContext, useContext, useEffect, useState } from "react";
-
-interface User {
-    name: string;
-    email:string;
-    isAdmin: boolean;
-    avatarPath: string;
-}
-
-interface AuthContextData {
-    user?: User | null;
-    token?: string | null;
-    login: (userData: User, tokenValue: string) => void;
-    logout: () => void;
-}
-
-const AuthContext = createContext<AuthContextData>({
-    user:null,
-    token:null,
-    login: () => {},
-    logout: () => {}
-})
-
-export const useAuth = () => useContext(AuthContext);
+import React, {useState, useEffect} from "react";
+import {AuthContext, User} from "../services/authContext";
 
 export function AuthProvider({ children}: {children: React.ReactNode}){
     const [user, setUser] = useState<User | null>(null)
