@@ -1,61 +1,83 @@
+.card-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: linear-gradient(to bottom, #fff, #94a8bd);
+}
+
 .loginCard{
-    width:450px;
-    height:600px;
-    box-shadow: 0 0 4px var(--color-text-primary);
-    padding:2rem;
-    border-radius: 1.75rem;
-    background-color: var(--color-background-primary);
+    width: 450px;
+    height: 650px;
+    border-radius: 2rem;
+    background-color: rgba(148, 168, 189, 0.7);
+    border:1px solid rgba(255,255,255,0.2)
 }
 
 .brand{
-    color:var(--color-text-primary);
-}
-
-
-.loginCard h1,h2{
+    color: var(--color-dark-text-primary);
+    font-size: 2rem;
+    font-weight: 700;
     text-align: center;
+    margin-block: 2rem;
 }
 
-.rememberMe{
-    display:flex;
+.formLogin form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    gap:0.5rem;
+    gap: 1rem;
 }
 
-.rememberMe input{
-    width:1rem;
-    height:1rem;
+.input-group{
+    width: 100%;
 }
 
-.rememberMe label{
-    color:var(--color-text-primary);
+.formLogin{
+    margin-block: 2rem;
+    width: 80%;
+    margin-inline: auto;
 }
 
-
-input{
-    border:1px solid var(--color-border);
-    border-radius: 0.5rem;
-    padding:0.5rem;
-    font-size: 1rem;
-}
-
-.footer-login-card{
-    display:flex;
-    justify-content: space-between;
-    align-items: flex-start;
-}
-
-button{
-    background-color: var(--color-primary);
-    color:var(--color-background-primary);
-    padding:.7rem;
-    border-radius: 0.5rem;
+.formLogin .input-group input{
+    padding: .75rem;
+    border-radius: .5rem;
     border: none;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 1rem;
+    outline: none;
+    background-color:#fff;
+    color: var(--color-dark-text-primary);
 }
 
-h2{
-    color:var(--color-text-secondary)
+.formLogin .input-group input:focus{
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.formLogin button{
+    width: 100%;
+    padding: .5rem !important;
+    border-radius: .5rem;
+    border: none;
+    outline: none;
+    background-color: var(--color-dark-text-primary);
+    color: var(--color-dark-text-secondary);
+    font-weight: 700;
+}
+
+.blue{
+    color: #4282e2
+}
+
+.red{
+    color: #db4437
+}
+
+.formLogin p{
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.formLogin p a{
+    color: var(--color-primary);
+    font-weight: 700;
 }
