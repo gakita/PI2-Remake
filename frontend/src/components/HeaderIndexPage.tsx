@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react"
 import api from "../Server"
 import { useForm } from "react-hook-form"
-import { useAuth } from "../services/AuthContext"
+import { useAuth } from "../services/authContext"
 
 export default function HeaderIndexPage(){
 
     const {register, handleSubmit, formState: {errors}} = useForm()
-    let apiURL = import.meta.env.VITE_API_URL
+    const apiURL = import.meta.env.VITE_API_URL
     const [cities, setCity] = useState<any[]>([])
     const {user, logout} = useAuth()
     const [dropDown, setDropDown] = useState(false)
@@ -35,6 +35,7 @@ export default function HeaderIndexPage(){
       try{
         const response = await api.get(`/trips/search?${params.toString()}`)
         console.log('resposta api:',response.data)
+        console.log(user?.avatarPath)
       }catch(error:any){
         console.log('destino:',data.destiny)
         console.log('origem:',data.origin)
@@ -61,23 +62,32 @@ export default function HeaderIndexPage(){
               <h2>Cryas Airways</h2>
             </div>
             <ul>
-              <li><a href="#">Minhas Viagens</a></li>
-              <li><a href="#">Ofertas</a></li>
               {user ? (
                 <>
-                <div className="userCard" onClick={() => setDropDown(!dropDown)}>
-                  <img src={`${apiURL}/uploads/${user.avatarPath}`} alt="" />
-                  <p>{user.name}</p>
+                <div className={["userCard", dropDown ? "active" : ""].join(" ")}  onClick={() => setDropDown(!dropDown) }>
+                  <div className="user-info">
+                    <img src={`${apiURL}/uploads/${user.avatarPath}`} alt="" />
+                    <p>{user.name}</p>
+                    <i className={dropDown ? "bi bi-chevron-up" : "bi bi-chevron-down"}></i>
+                  </div>
                   {dropDown && (
                   <div className="userMenu">
-                    <button onClick={logout}>Sair</button>
+                    <ul>
+                      <li><a href="#">Minhas Viagens</a></li>
+                      <li><a href="#">Configurações</a></li>
+                      <li><a href="#">Ofertas</a></li>
+                      <li><a onClick={logout}>Sair</a></li>
+                    </ul>
                   </div>
                 )}
                 </div>
                 </>
               ):
               (
+                <>
+                <li><a href="#">Ofertas</a></li>
                 <li><a href="/login">Login</a></li>
+                </>
               )
             }
             </ul>
