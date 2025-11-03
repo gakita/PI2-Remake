@@ -38,7 +38,7 @@ router.delete("/deleteAllUsers", deleteAllUsersController)
 router.post("/registerPlane", registerPlaneController)
 
 // Registrar Usuario
-router.post("/registerUser", upload.single("avatarPath"),registerUserController)
+router.post("/auth/registerUser", upload.single("avatarPath"),registerUserController)
 
 // Registrar Cidade
 router.post("/registerCity", upload.single("imagePath"), registerCityController)
