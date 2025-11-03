@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom"
 import api from "../Server"
 import { z } from "zod"
 import "../styles/loginIndex.css"
-import { useAuth } from "../services/AuthContext"
+import { useAuth } from "../services/authContext"
 
 const LoginCard = () => {
 
