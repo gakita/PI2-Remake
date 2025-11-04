@@ -51,7 +51,7 @@ const LoginCard = () => {
             </div>
             {errors.email && <span>{errors.email?.message}</span>}
             {errors.password && <span>{errors.password?.message}</span>}
-            {loading ? <ClipLoader color="white" /> : <button type="submit" disabled={loading}>Login</button>}
+            {loading ? <ClipLoader color="#1890fb" size={25} speedMultiplier={0.5} aria-label="loading..."/> : <button type="submit" disabled={loading}>Login</button>}
         </form>
         <p>Não tem uma conta? <a href="/register">Clique aqui</a></p>
       </div>
