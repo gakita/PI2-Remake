@@ -62,6 +62,7 @@ export default function HeaderIndexPage(){
               <h2>Cryas Airways</h2>
             </div>
             <ul>
+              <li><a href="#">Ofertas</a></li>
               {user ? (
                 <>
                 <div className={["userCard", dropDown ? "active" : ""].join(" ")}  onClick={() => setDropDown(!dropDown) }>
@@ -76,7 +77,7 @@ export default function HeaderIndexPage(){
                       <li><a href="#">Minhas Viagens</a></li>
                       <li><a href="#">Configurações</a></li>
                       <li><a href="#">Ofertas</a></li>
-                      <li><a onClick={logout}>Sair</a></li>
+                      <li onClick={logout}><a >Sair</a></li>
                     </ul>
                   </div>
                 )}
@@ -85,7 +86,6 @@ export default function HeaderIndexPage(){
               ):
               (
                 <>
-                <li><a href="#">Ofertas</a></li>
                 <li><a href="/login">Login</a></li>
                 </>
               )
