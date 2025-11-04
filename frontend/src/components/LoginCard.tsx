@@ -6,15 +6,19 @@ import api from "../Server"
 import { z } from "zod"
 import "../styles/loginIndex.css"
 import { useAuth } from "../services/authContext"
+import { useState } from "react"
+import { ClipLoader} from "react-spinners"
 
 const LoginCard = () => {
 
     const {user, login} = useAuth()
     const navigate = useNavigate()
+    const [loading, setLoading] = useState(false)
     const {register, handleSubmit, formState: {errors}} = useForm<z.infer<typeof loginUserSchema>>({resolver:zodResolver(loginUserSchema)})
 
     const onSubmit = async (data: z.infer<typeof loginUserSchema>) => {
         try{
+            setLoading(true)
             const response = await api.post("auth/login",data)
             console.log(response.data.token)
             localStorage.setItem("token",response.data.token)
@@ -23,7 +27,10 @@ const LoginCard = () => {
         }catch(error:any){
             const msg = error?.response?.data?.error || "Erro ao fazer login"
             alert(msg)
+        }finally{
+            setLoading(false)
         }
+        
     }
 
     return (
@@ -44,7 +51,7 @@ const LoginCard = () => {
             </div>
             {errors.email && <span>{errors.email?.message}</span>}
             {errors.password && <span>{errors.password?.message}</span>}
-            <button type="submit">Login</button>
+            {loading ? <ClipLoader color="white" /> : <button type="submit" disabled={loading}>Login</button>}
         </form>
         <p>Não tem uma conta? <a href="/register">Clique aqui</a></p>
       </div>
