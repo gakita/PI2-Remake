@@ -17,6 +17,7 @@ import { getCitiesByNameController } from "../features/getCitiesByName/getCities
 import { getUserByEmailController } from "../features/getUserByEmail/getUserByEmail.controller"
 import { loginAuthController } from "../features/Auth/loginUser/loginAuth.controller"
 import { getTripByNameController } from "../features/getTripByName/getTripByName.controller"
+import { updateCityController } from "../features/updateCity/updateCity.controller"
 
 const router = express.Router()
 
@@ -76,6 +77,9 @@ router.get("/trips/search", getTripByNameController)
 
 // Buscar Voo por ID
 router.get("/trips/:id", getTripByIDController)
+
+// Atualizar Cidade
+router.put("/updateCity/:id", updateCityController)
 
 // ROTA LOGIN
 
