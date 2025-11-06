@@ -8,7 +8,6 @@
 
 .active{
     background-color: #ffffff;
-    color:var(--color-primary);
 }
 
 .user-card{
@@ -16,8 +15,7 @@
     border-radius: 1rem;
     padding:5px;
     &:hover{
-        background-color: #ffffff;
-        color:var(--color-primary);
+        background-color: #fff;
     }
 }
 
@@ -27,6 +25,10 @@
     gap: 10px;
     cursor: pointer;
     transition: all .2s ease-in-out;
+    color:#fff;
+    &:hover{
+        color:var(--color-text-primary);
+    }
 }
 
 .userCard img{
@@ -41,7 +43,24 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    cursor: pointer;
-    transition: all .2s ease-in-out;
-    border: 1px solid transparent;
+    transition: .3s;
+    margin-block: 1rem;
+    color:#fff;
+}
+
+.adm-card img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.adm-info{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: flex-start;
+}
+
+.adm-info h2,p{
+    color:#fff;
 }
