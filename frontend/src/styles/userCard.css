@@ -1,0 +1,32 @@
+/* UserCard styles are defined in DropDownMenu.css for now */
+/* This file is reserved for future userCard-specific styles */
+.userCard{
+    position: relative;
+    border:1px solid rgba(255,255,255);
+    padding:5px;
+    border-radius: 1rem;
+    transition: all .2s ease-in-out;
+    &:hover{
+        background-color: #ffffff;
+        color:var(--color-primary);
+    }
+}
+
+.active{
+    background-color: #ffffff;
+    color:var(--color-primary);
+}
+
+.user-info{
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+
+.userCard img{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
