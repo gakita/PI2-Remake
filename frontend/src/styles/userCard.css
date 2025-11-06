@@ -46,11 +46,12 @@
     transition: .3s;
     margin-block: 1rem;
     color:#fff;
+    max-width: 170px;
 }
 
 .adm-card img{
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
 }
 
@@ -61,6 +62,16 @@
     align-items: flex-start;
 }
 
+.admin-container h2.navItem{
+    margin:0 !important;
+}
+
+.cardadm{
+    width: 100%;
+    max-width: 210px;
+}
+
 .adm-info h2,p{
     color:#fff;
+    margin:0 !important;
 }
