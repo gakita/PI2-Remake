@@ -30,9 +30,9 @@ function UserCard({ showDropdown = false, homePage = true }: UserCardProps){
                             </div>
                           </div>
                     ) : (
-                        <div className="">
+                        <div className="adm-card">
                             <img src={imagePath(user.avatarPath)} alt="" />
-                            <div>
+                            <div className="adm-info">
                                 <h2>{user.name}</h2>
                                 <p>{user.email}</p>
                             </div>
