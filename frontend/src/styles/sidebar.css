@@ -5,4 +5,28 @@
     height: 100vh;
     width: 250px;
     background-color: var(--color-primary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav-header{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.nav-list{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav-list li{
+    margin: 10px 0;
+}
+
+.sidebar.close{
+    width: 60px;
 }

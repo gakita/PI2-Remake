@@ -3,15 +3,20 @@ import { useAuth } from "../services/authContext"
 import { data, useNavigate } from "react-router-dom"
 import { useState } from "react"
 import { useEffect } from "react"
-import UserCard from "../components/userCard"
 import api from "../Server"
 import "../styles/sidebar.css"
+import UserCard from "./userCard"
 
-function Sidebar(){
+interface SidebarProps {
+    isOpen: boolean;
+    toggle: () => void;
+}
+
+function Sidebar({isOpen, toggle}: SidebarProps){
 
     const {user, logout} = useAuth()
     const navigate = useNavigate()
-    const [open,setOpen] = useState(true)
+    const [open,setOpen] = useState(isOpen)
     const handleLogout = () => {
         logout()
         navigate("/")
@@ -21,26 +26,36 @@ function Sidebar(){
     <>
     
     <nav className={["sidebar", open ? "active" : ""].join(" ")}>
-        <h1>Cryas Airways</h1>
+
     {open? (
         <>
-        <ul>
+        <div className="nav-header">
+            <h1>Cryas Airways</h1>
+            <button onClick={() => setOpen(!open)}>
+                <i className={open ? "bi bi-x" : "bi bi-list"}></i>
+            </button>
+        </div>
+        <ul className="nav-list">
             <li><a href="/getFlights">Voos</a></li>
             <li><a href="/getUsers">Usuarios</a></li>
             <li><a href="/getClients">Clientes</a></li>
             <li><a href="/getReservations">Reservas</a></li>
             <li><a onClick={handleLogout}>Sair</a></li>
         </ul>
-        <button onClick={() => setOpen(!open)}>
-            <i className={open ? "bi bi-x" : "bi bi-list"}></i>
-        </button>
         </>
     ):(
         <>
-        <div>
-            
+        <div className="nav-header">
+            <h1>Cryas</h1>
+            <button onClick={() => setOpen(!open)}>
+                <i className={open ? "bi bi-x" : "bi bi-list"}></i>
+            </button>
         </div>
-        <ul>
+        <div>
+            <UserCard homePage={false}/>
+        </div>
+        <ul className="nav-list">
+            <p>MENU</p>
             <li>
                 <a href="/getFlights"> <i className="bi bi-airplane"></i></a>
             </li>
