@@ -2,14 +2,13 @@ import { useEffect, useState } from "react"
 import api from "../Server"
 import { useForm } from "react-hook-form"
 import { useAuth } from "../services/authContext"
+import UserCard from "./userCard"
 
 export default function HeaderIndexPage(){
 
     const {register, handleSubmit, formState: {errors}} = useForm()
-    const apiURL = import.meta.env.VITE_API_URL
     const [cities, setCity] = useState<any[]>([])
-    const {user, logout} = useAuth()
-    const [dropDown, setDropDown] = useState(false)
+    const {user} = useAuth()
 
     useEffect(() => {
         api.get("/cities")
@@ -63,33 +62,7 @@ export default function HeaderIndexPage(){
             </div>
             <ul>
               <li><a href="#">Ofertas</a></li>
-              {user ? (
-                <>
-                <div className={["userCard", dropDown ? "active" : ""].join(" ")}  onClick={() => setDropDown(!dropDown) }>
-                  <div className="user-info">
-                    <img src={`${apiURL}/uploads/${user.avatarPath}`} alt="" />
-                    <p>{user.name}</p>
-                    <i className={dropDown ? "bi bi-chevron-up" : "bi bi-chevron-down"}></i>
-                  </div>
-                  {dropDown && (
-                  <div className="userMenu">
-                    <ul>
-                      <li><a href="#">Minhas Viagens</a></li>
-                      <li><a href="#">Configurações</a></li>
-                      <li><a href="#">Ofertas</a></li>
-                      <li onClick={logout}><a >Sair</a></li>
-                    </ul>
-                  </div>
-                )}
-                </div>
-                </>
-              ):
-              (
-                <>
-                <li><a href="/login">Login</a></li>
-                </>
-              )
-            }
+              <UserCard showDropdown={true} />
             </ul>
           </div>
           <div className="separator"></div>
