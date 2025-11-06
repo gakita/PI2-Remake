@@ -1,19 +1,16 @@
 
 import { useAuth } from "../services/authContext"
-import { data, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { useState } from "react"
-import { useEffect } from "react"
-import api from "../Server"
-import "../styles/sidebar.css"
+import "../styles/AdminDashBoardIndex.css"
 import UserCard from "./userCard"
 import { imagePath } from "../hooks/imagePath"
 
 interface SidebarProps {
     isOpen: boolean;
-    toggle: () => void;
 }
 
-function Sidebar({isOpen, toggle}: SidebarProps){
+function Sidebar({isOpen}: SidebarProps){
 
     const {user, logout} = useAuth()
     const navigate = useNavigate()
@@ -32,7 +29,7 @@ function Sidebar({isOpen, toggle}: SidebarProps){
         <>
         <div className="sidebar-container">
             <div className="sm-nav-header">
-            <i onClick={() => setOpen(!open)} className={open ? "bi bi-x" : "bi bi-list"}></i>
+            <i onClick={() => setOpen(!open)} className={open ? "bi bi-list" : ""}></i>
             </div>
             <div className="image-admin-nav-container img-overlay">
                 <img className="image-admin-nav" src={imagePath(user?.avatarPath!)} alt="" />
@@ -59,22 +56,24 @@ function Sidebar({isOpen, toggle}: SidebarProps){
         <div className="sidebar-container">
             <div className="nav-header">
                 <h1>Cryas</h1>
-                <i onClick={() => setOpen(!open)} className={["bi",open ? "bi-x" : "bi-list"].join(" ")}></i>
+                <i onClick={() => setOpen(!open)} className={["bi",open ? "" : "bi-x"].join(" ")}></i>
             </div>
-            <h2>ADMIN</h2>
-            <div>
+            <div className="admin-container">
+                <h2 className="navItem">ADMIN</h2>
+            <div className="cardadm">
                 <div className="img-overlay">
                     <UserCard homePage={false}/>
                 </div>
             </div>
             <ul className="nav-list">
-                <h2>MENU</h2>
+                <h2 className="navItem">MENU</h2>
                 <li><a href="#">Voos</a></li>
                 <li><a href="#">Usuarios</a></li>
                 <li><a href="#">Clientes</a></li>
                 <li><a href="#">Reservas</a></li>
                 <li><a onClick={handleLogout}>Sair</a></li>
             </ul>
+            </div>
         </div>
         </>
     )}
