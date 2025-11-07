@@ -3,7 +3,7 @@ import  Sidebar  from "../../components/Sidebar"
 function AdminDashboard(){
     return(
         <>
-        <Sidebar/>
+        <Sidebar isOpen={true}/>
         </>
     )
 }
