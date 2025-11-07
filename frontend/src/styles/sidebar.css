@@ -77,11 +77,11 @@
     display: flex;
     margin-top:auto;
     flex-direction: column;
-    gap:.25rem;
+    gap:.5rem;
     cursor: pointer;
 }
 
-.exit-area:hover{
+.exit-area a:hover{
     background-color: #1e293b;
     border-radius: .5rem;
 }
