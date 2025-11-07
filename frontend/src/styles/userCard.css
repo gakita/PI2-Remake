@@ -40,38 +40,36 @@
 /* ADM CARD STYLING*/
 
 .adm-card{
-    display: flex;
+    display:flex;
     align-items: center;
-    gap: 10px;
-    transition: .3s;
-    margin-block: 1rem;
-    color:#fff;
-    max-width: 170px;
+    gap:.75rem;
+    padding:.75rem;
+    
 }
 
 .adm-card img{
-    width: 35px;
-    height: 35px;
+    width: 2.5rem;
+    height: 2.5rem;
     border-radius: 50%;
 }
 
 .adm-info{
     display: flex;
     flex-direction: column;
-    gap: 5px;
-    align-items: flex-start;
 }
 
-.admin-container h2.navItem{
-    margin:0 !important;
+.adm-info h1,p{
+    line-height: 1.5;
+    margin:0;
 }
 
-.cardadm{
-    width: 100%;
-    max-width: 210px;
-}
-
-.adm-info h2,p{
+.adm-info h1{
+    font-size: 1rem;
     color:#fff;
-    margin:0 !important;
+    font-weight: 500;
+}
+
+.adm-info p{
+    font-size: .875rem;
+    color:#aaa;
 }
