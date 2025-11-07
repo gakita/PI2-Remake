@@ -5,6 +5,8 @@ import { useState } from "react"
 import "../styles/AdminDashBoardIndex.css"
 import UserCard from "./userCard"
 import { imagePath } from "../hooks/imagePath"
+import * as Icons from '@mui/icons-material';
+
 
 interface SidebarProps {
     isOpen: boolean;
@@ -15,71 +17,71 @@ function Sidebar({isOpen}: SidebarProps){
     const {user, logout} = useAuth()
     const navigate = useNavigate()
     const [open,setOpen] = useState(isOpen)
+    
     const handleLogout = () => {
         logout()
         navigate("/")
     }
     
     return(
-    <>
-    
-    <nav className={["sidebar", open ? "close" : "open"].join(" ")}>
-        <div className="container-sidebar">
-            {open? (
-        <>
-        <div className="sidebar-container">
-            <div className="sm-nav-header">
-            <i onClick={() => setOpen(!open)} className={open ? "bi bi-list" : ""}></i>
-            </div>
-            <div className="image-admin-nav-container img-overlay">
-                <img className="image-admin-nav" src={imagePath(user?.avatarPath!)} alt="" />
-            </div>
-            <ul className="nav-list">
-                <li>
-                    <a href="#"> <i className="bi bi-airplane"></i></a>
-                </li>
-                <li>
-                    <a href="#"><i className="bi bi-people"></i></a>
-                </li>
-                <li>
-                <a href="#"><i className="bi bi-person"></i></a>
-                </li>
-                <li>
-                    <a href="#"><i className="bi bi-calendar"></i></a>
-                </li>
-                <li><a onClick={handleLogout}><i className="bi bi-box-arrow-right"></i></a></li>
-            </ul>
-        </div>
-        </>
-    ):(
-        <>
-        <div className="sidebar-container">
-            <div className="nav-header">
-                <h1>Cryas</h1>
-                <i onClick={() => setOpen(!open)} className={["bi",open ? "" : "bi-x"].join(" ")}></i>
-            </div>
-            <div className="admin-container">
-                <h2 className="navItem">ADMIN</h2>
-            <div className="cardadm">
-                <div className="img-overlay">
-                    <UserCard homePage={false}/>
-                </div>
-            </div>
-            <ul className="nav-list">
-                <h2 className="navItem">MENU</h2>
-                <li><a href="#">Voos</a></li>
-                <li><a href="#">Usuarios</a></li>
-                <li><a href="#">Clientes</a></li>
-                <li><a href="#">Reservas</a></li>
-                <li><a onClick={handleLogout}>Sair</a></li>
-            </ul>
-            </div>
-        </div>
-        </>
-    )}
-        </div>
-    </nav>
-    </>
+        <aside>
+            <nav className={["sidebar", (open ? "open" : "close")].join(" ")}>
+                {
+                    open ? (
+                        //OPEN
+                        <>
+                        <div className="sidebar-header">
+                            <h2><span className="blue">Cr</span>y<span className="red">as</span></h2>
+                            <Icons.Close onClick={() => setOpen(false)} htmlColor="#fff" style={{cursor:"pointer"}}/>
+                        </div>
+                        <div className="sidebar-menu">
+                            <div className="active-user">
+                                <p>ADMIN</p>
+                                <UserCard homePage={false}/>
+                            </div>
+                            <div className="sidebar-menu-items">
+                                <p>MENU</p>
+                                <a href="#"><Icons.DashboardOutlined/>Dashboard</a>
+                                <a href="#"><Icons.ConnectingAirports/>Gerenciar Voos</a>
+                                <a href="#"><Icons.RouteOutlined/>Gerenciar Rotas</a>
+                                <a href="#"><Icons.Apartment/>Gerenciar Cidades</a>
+                                <a href="#"><Icons.AirplanemodeActive/>Gerenciar Aeronaves</a>
+                                <a href="#"><Icons.Person/>Gerenciar Usuários</a>
+                            </div>
+                        </div>
+                        <div className="exit-area">
+                                <a onClick={handleLogout}><Icons.Logout/>Sair</a>
+                            </div>
+                        </>
+                    ):(
+                        //CLOSE
+                        <>
+                        <div className="sidebar-header close">
+                            <Icons.Menu onClick={() => setOpen(true)} htmlColor="#fff" style={{cursor:"pointer"}} fontSize="large"/>
+                        </div>
+                        <div className="sidebar-menu-items close">
+                            <div className="active-user close">
+                                <div>
+                                    <img src={imagePath(user?.avatarPath!)} alt="" />
+                                </div>
+                            </div>
+                            <div className="linkHolder">
+                                <a href="#"><Icons.DashboardOutlined/></a>
+                                <a href="#"><Icons.ConnectingAirports/></a>
+                                <a href="#"><Icons.RouteOutlined/></a>
+                                <a href="#"><Icons.Apartment/></a>
+                                <a href="#"><Icons.AirplanemodeActive/></a>
+                                <a href="#"><Icons.Person/></a>
+                            </div>
+                        </div>
+                        <div className="exit-area close">
+                            <Icons.Logout onClick={handleLogout} htmlColor="#fff" style={{cursor:"pointer"}}/>
+                        </div>
+                        </>
+                    )
+                }
+            </nav>         
+        </aside>
     )
 }
 
