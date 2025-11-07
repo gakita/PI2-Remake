@@ -50,6 +50,7 @@ function Sidebar({isOpen}: SidebarProps){
                             </div>
                         </div>
                         <div className="exit-area">
+                                <a href="#"><Icons.Settings/>Configurações</a>
                                 <a onClick={handleLogout}><Icons.Logout/>Sair</a>
                             </div>
                         </>
@@ -75,7 +76,8 @@ function Sidebar({isOpen}: SidebarProps){
                             </div>
                         </div>
                         <div className="exit-area close">
-                            <Icons.Logout onClick={handleLogout} htmlColor="#fff" style={{cursor:"pointer"}}/>
+                            <a href="#"><Icons.Settings/></a>
+                            <a onClick={handleLogout}><Icons.Logout/></a>
                         </div>
                         </>
                     )
