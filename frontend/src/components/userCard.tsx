@@ -1,5 +1,4 @@
 import { useAuth } from "../services/authContext"
-import { useNavigate } from "react-router-dom"
 import { useState } from "react"
 import DropdownMenu from "./DropdownMenu"
 import { imagePath } from "../hooks/imagePath";
@@ -10,8 +9,7 @@ interface UserCardProps {
 }
 
 function UserCard({ showDropdown = false, homePage = true }: UserCardProps){
-    const {user, logout} = useAuth()
-    const navigate = useNavigate()
+    const {user} = useAuth()
     const [dropDown, setDropDown] = useState(false)
     
     const apiURL = import.meta.env.VITE_API_URL
@@ -33,8 +31,8 @@ function UserCard({ showDropdown = false, homePage = true }: UserCardProps){
                         <div className="adm-card">
                             <img src={imagePath(user.avatarPath)} alt="" />
                             <div className="adm-info">
-                                <h2>{user.name}</h2>
-                                <p className="navItem">{user.email}</p>
+                                <h1 className="adm-name">{user.name}</h1>
+                                <p className="adm-email">{user.email}</p>
                             </div>
                           </div>
                     )
