@@ -6,7 +6,8 @@
     transition: all .2s ease-in-out;
 }
 
-.active{
+.active, .active p{
+    color:var(--color-text-primary);
     background-color: #ffffff;
 }
 
