@@ -18,6 +18,7 @@ import { getUserByEmailController } from "../features/getUserByEmail/getUserByEm
 import { loginAuthController } from "../features/Auth/loginUser/loginAuth.controller"
 import { getTripByNameController } from "../features/getTripByName/getTripByName.controller"
 import { updateCityController } from "../features/updateCity/updateCity.controller"
+import { updateUserController } from "../features/updateUser/updateUser.controller"
 
 const router = express.Router()
 
@@ -80,6 +81,9 @@ router.get("/trips/:id", getTripByIDController)
 
 // Atualizar Cidade
 router.put("/updateCity/:id", updateCityController)
+
+// Atualizar Usuário
+router.put("/updateUser/:id", updateUserController)
 
 // ROTA LOGIN
 
