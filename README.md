@@ -346,5 +346,3 @@ Este projeto está sob a licença ISC.
 [gakita](https://github.com/gakita)
 
 ---
-
-**Nota:** Este é um projeto acadêmico desenvolvido para fins educacionais.
