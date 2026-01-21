@@ -1,7 +1,7 @@
 
 import { useAuth } from "../services/authContext"
 import { useNavigate } from "react-router-dom"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import "../styles/AdminDashBoardIndex.css"
 import UserCard from "./userCard"
 import { imagePath } from "../hooks/imagePath"
@@ -10,13 +10,23 @@ import * as Icons from '@mui/icons-material';
 
 interface SidebarProps {
     isOpen: boolean;
+    onToggle?: (isOpen: boolean) => void;
 }
 
-function Sidebar({isOpen}: SidebarProps){
+function Sidebar({isOpen, onToggle}: SidebarProps){
 
     const {user, logout} = useAuth()
     const navigate = useNavigate()
     const [open,setOpen] = useState(isOpen)
+
+    useEffect(() => {
+        setOpen(isOpen)
+    }, [isOpen])
+
+    const handleToggle = (nextOpen: boolean) => {
+        setOpen(nextOpen)
+        onToggle?.(nextOpen)
+    }
     
     const handleLogout = () => {
         logout()
@@ -32,7 +42,7 @@ function Sidebar({isOpen}: SidebarProps){
                         <>
                         <div className="sidebar-header">
                             <h2><span className="blue">Cr</span>y<span className="red">as</span></h2>
-                            <Icons.Close onClick={() => setOpen(false)} htmlColor="#fff" style={{cursor:"pointer"}}/>
+                            <Icons.Close onClick={() => handleToggle(false)} htmlColor="#fff" style={{cursor:"pointer"}}/>
                         </div>
                         <div className="sidebar-menu">
                             <div className="active-user">
@@ -58,7 +68,7 @@ function Sidebar({isOpen}: SidebarProps){
                         //CLOSE
                         <>
                         <div className="sidebar-header close">
-                            <Icons.Menu onClick={() => setOpen(true)} htmlColor="#fff" style={{cursor:"pointer"}} fontSize="large"/>
+                            <Icons.Menu onClick={() => handleToggle(true)} htmlColor="#fff" style={{cursor:"pointer"}} fontSize="large"/>
                         </div>
                         <div className="sidebar-menu-items close">
                             <div className="active-user close">
