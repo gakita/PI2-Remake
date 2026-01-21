@@ -51,16 +51,16 @@ function Sidebar({isOpen, onToggle}: SidebarProps){
                             </div>
                             <div className="sidebar-menu-items">
                                 <p>MENU</p>
-                                <a href="#"><Icons.DashboardOutlined/>Dashboard</a>
-                                <a href="#"><Icons.ConnectingAirports/>Gerenciar Voos</a>
-                                <a href="#"><Icons.RouteOutlined/>Gerenciar Rotas</a>
-                                <a href="#"><Icons.Apartment/>Gerenciar Cidades</a>
-                                <a href="#"><Icons.AirplanemodeActive/>Gerenciar Aeronaves</a>
-                                <a href="#"><Icons.Person/>Gerenciar Usuários</a>
+                                <a href="/admin"><Icons.DashboardOutlined/>Dashboard</a>
+                                <a href="/admin/voos"><Icons.ConnectingAirports/>Gerenciar Voos</a>
+                                <a href="/admin/rotas"><Icons.RouteOutlined/>Gerenciar Rotas</a>
+                                <a href="/admin/cidades"><Icons.Apartment/>Gerenciar Cidades</a>
+                                <a href="/admin/aeronaves"><Icons.AirplanemodeActive/>Gerenciar Aeronaves</a>
+                                <a href="/admin/usuarios"><Icons.Person/>Gerenciar Usuários</a>
                             </div>
                         </div>
                         <div className="exit-area">
-                                <a href="#"><Icons.Settings/>Configurações</a>
+                                <a href="/admin/configuracoes"><Icons.Settings/>Configurações</a>
                                 <a onClick={handleLogout}><Icons.Logout/>Sair</a>
                             </div>
                         </>
@@ -77,16 +77,16 @@ function Sidebar({isOpen, onToggle}: SidebarProps){
                                 </div>
                             </div>
                             <div className="linkHolder">
-                                <a href="#"><Icons.DashboardOutlined/></a>
-                                <a href="#"><Icons.ConnectingAirports/></a>
-                                <a href="#"><Icons.RouteOutlined/></a>
-                                <a href="#"><Icons.Apartment/></a>
-                                <a href="#"><Icons.AirplanemodeActive/></a>
-                                <a href="#"><Icons.Person/></a>
+                                <a href="/admin"><Icons.DashboardOutlined/></a>
+                                <a href="/admin/voos"><Icons.ConnectingAirports/></a>
+                                <a href="/admin/rotas"><Icons.RouteOutlined/></a>
+                                <a href="/admin/cidades"><Icons.Apartment/></a>
+                                <a href="/admin/aeronaves"><Icons.AirplanemodeActive/></a>
+                                <a href="/admin/usuarios"><Icons.Person/></a>
                             </div>
                         </div>
                         <div className="exit-area close">
-                            <a href="#"><Icons.Settings/></a>
+                            <a href="/admin/configuracoes"><Icons.Settings/></a>
                             <a onClick={handleLogout}><Icons.Logout/></a>
                         </div>
                         </>

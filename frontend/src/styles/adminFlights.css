@@ -1,0 +1,207 @@
+.admin-layout.admin-flights{
+    background-color: var(--color-dark-background-primary);
+    color: var(--color-dark-text-main);
+}
+
+.admin-layout.admin-flights .admin-main{
+    background-color: var(--color-dark-background-primary);
+}
+
+.admin-layout.admin-flights h1,
+.admin-layout.admin-flights h2,
+.admin-layout.admin-flights h3{
+    color: var(--color-dark-text-main);
+}
+
+.admin-flights-topbar{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.admin-flights-subtitle{
+    color: var(--color-dark-text-muted);
+    margin-top: .5rem;
+    max-width: 36rem;
+}
+
+.admin-flights-toolbar{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.admin-flights-tabs{
+    display: flex;
+    gap: .75rem;
+    background-color: var(--color-dark-background-secondary);
+    padding: .35rem;
+    border-radius: 999px;
+    border: 1px solid var(--color-dark-border);
+}
+
+.admin-flights-tab{
+    border: none;
+    background: transparent;
+    color: var(--color-dark-text-muted);
+    font-weight: 600;
+    padding: .55rem 1.25rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.admin-flights-tab.active{
+    background-color: var(--color-dark-blue-highlight);
+    color: var(--color-dark-text-main);
+}
+
+.admin-flights-search{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .6rem 1rem;
+    background-color: var(--color-dark-input-bg);
+    border-radius: .75rem;
+    border: 1px solid var(--color-dark-border);
+    min-width: 260px;
+    color: var(--color-dark-text-muted);
+}
+
+.admin-flights-search input{
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--color-dark-text-main);
+    width: 100%;
+    font-size: .95rem;
+}
+
+.admin-flights-table-wrapper{
+    background-color: var(--color-dark-background-secondary);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    border: 1px solid var(--color-dark-border);
+}
+
+.admin-flights-table{
+    width: 100%;
+    border-collapse: collapse;
+    color: var(--color-dark-text-main);
+}
+
+.admin-flights-table th,
+.admin-flights-table td{
+    text-align: left;
+    padding: .9rem .75rem;
+    border-bottom: 1px solid var(--color-dark-border);
+    font-size: .95rem;
+}
+
+.admin-flights-table th{
+    font-weight: 600;
+    color: var(--color-dark-text-muted);
+}
+
+.admin-flights-table tbody tr:hover{
+    background-color: rgba(35, 170, 255, 0.08);
+}
+
+.admin-flights-type-toggle{
+    display: inline-flex;
+    align-items: center;
+    gap: .35rem;
+    padding: .35rem .75rem;
+    border-radius: .6rem;
+    border: 1px solid var(--color-dark-border);
+    background-color: transparent;
+    color: var(--color-dark-text-main);
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.admin-flights-type-toggle:hover{
+    border-color: var(--color-dark-blue-highlight);
+    color: var(--color-dark-blue-highlight-alt);
+}
+
+.admin-flight-tag{
+    display: inline-flex;
+    align-items: center;
+    padding: .3rem .75rem;
+    border-radius: 999px;
+    background-color: rgba(35, 170, 255, 0.15);
+    color: var(--color-dark-blue-highlight-alt);
+    font-weight: 600;
+    font-size: .8rem;
+}
+
+.admin-flight-status{
+    display: inline-flex;
+    align-items: center;
+    padding: .3rem .75rem;
+    border-radius: .6rem;
+    font-weight: 600;
+    font-size: .8rem;
+    background-color: var(--color-dark-card-bg);
+    color: var(--color-dark-text-main);
+}
+
+.admin-flight-status.embarque{
+    background-color: rgba(234, 182, 72, 0.2);
+    color: var(--color-dark-warning);
+}
+
+.admin-flight-status.pontual{
+    background-color: rgba(55, 201, 147, 0.2);
+    color: var(--color-dark-success);
+}
+
+.admin-flight-status.confirmado{
+    background-color: rgba(35, 170, 255, 0.2);
+    color: var(--color-dark-blue-highlight-alt);
+}
+
+.admin-flight-status.aguardando{
+    background-color: rgba(150, 163, 171, 0.2);
+    color: var(--color-dark-text-muted);
+}
+
+.admin-flights-empty{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+    margin-top: 1.5rem;
+    color: var(--color-dark-text-muted);
+}
+
+.admin-flights-empty svg{
+    font-size: 2rem;
+}
+
+@media (max-width: 960px){
+    .admin-flights-topbar{
+        flex-direction: column;
+    }
+
+    .admin-flights-toolbar{
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .admin-flights-search{
+        width: 100%;
+    }
+
+    .admin-flights-table{
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
