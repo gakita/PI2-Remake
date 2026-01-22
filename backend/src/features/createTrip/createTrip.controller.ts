@@ -4,8 +4,8 @@ import { Request, Response, NextFunction } from "express";
 export async function createTripController(req: Request, res: Response, next: NextFunction){
     try{
         const tripData = req.body
-        await createTripService(tripData)
-        res.status(201).json({message: "Viagem criada com sucesso"})
+        const createdTrip = await createTripService(tripData)
+        res.status(201).json(createdTrip)
     }catch(error){
         next(error)
     }
