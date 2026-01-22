@@ -6,6 +6,7 @@ export const getAllTripsRepo = async () => {
     return p.trip.findMany(
         {
             include: {
+                fromCity: true,
                 toCity: true
             }
         }

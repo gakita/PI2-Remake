@@ -1,83 +1,51 @@
-import { useMemo, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import * as Icons from "@mui/icons-material"
 import Sidebar from "../../components/Sidebar"
+import api from "../../Server"
 import "../../styles/adminFlights.css"
 
 type FlightType = "Nacional" | "Internacional"
 
+type City = {
+    id: number
+    name: string
+    country: string
+}
+
+type Trip = {
+    id: number
+    fromCity: City
+    toCity: City
+    departureDate: string
+    basePrice: number
+    availableSeats: number
+}
+
+type FlightStatus = {
+    label: string
+    className: "disponivel" | "ultimas-vagas" | "lotado"
+}
+
 type Flight = {
-    id: string
+    id: number
     code: string
     origin: string
     destination: string
-    aircraft: string
     departure: string
-    status: string
+    price: string
+    seats: number
+    status: FlightStatus
     type: FlightType
 }
 
-const flights: Flight[] = [
-    {
-        id: "1",
-        code: "CRY-102",
-        origin: "São Paulo (GRU)",
-        destination: "Rio de Janeiro (GIG)",
-        aircraft: "Airbus A320",
-        departure: "07:45",
-        status: "Embarque",
-        type: "Nacional"
-    },
-    {
-        id: "2",
-        code: "CRY-205",
-        origin: "Brasília (BSB)",
-        destination: "Salvador (SSA)",
-        aircraft: "Boeing 737",
-        departure: "09:20",
-        status: "Pontual",
-        type: "Nacional"
-    },
-    {
-        id: "3",
-        code: "CRY-309",
-        origin: "Recife (REC)",
-        destination: "Fortaleza (FOR)",
-        aircraft: "Embraer 195",
-        departure: "10:10",
-        status: "Aguardando",
-        type: "Nacional"
-    },
-    {
-        id: "4",
-        code: "CRY-412",
-        origin: "São Paulo (GRU)",
-        destination: "Lisboa (LIS)",
-        aircraft: "Boeing 787",
-        departure: "12:30",
-        status: "Confirmado",
-        type: "Internacional"
-    },
-    {
-        id: "5",
-        code: "CRY-518",
-        origin: "Rio de Janeiro (GIG)",
-        destination: "Miami (MIA)",
-        aircraft: "Airbus A330",
-        departure: "14:50",
-        status: "Embarque",
-        type: "Internacional"
-    },
-    {
-        id: "6",
-        code: "CRY-621",
-        origin: "Curitiba (CWB)",
-        destination: "Buenos Aires (EZE)",
-        aircraft: "Airbus A321",
-        departure: "16:15",
-        status: "Pontual",
-        type: "Internacional"
+const formatTime = (value: string) => {
+    const parsed = new Date(value)
+    if (!Number.isNaN(parsed.getTime())) {
+        return parsed.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" })
     }
-]
+    const match = value.match(/^(\d{2}:\d{2})/)
+    return match ? match[1] : value
+}
 
 const tabOptions: { label: string; type: FlightType }[] = [
     { label: "Nacionais", type: "Nacional" },
@@ -88,6 +56,57 @@ function AdminFlights(){
     const [sidebarOpen, setSidebarOpen] = useState(true)
     const [activeType, setActiveType] = useState<FlightType>("Nacional")
     const [searchTerm, setSearchTerm] = useState("")
+    const [trips, setTrips] = useState<Trip[]>([])
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState<string | null>(null)
+
+    useEffect(() => {
+        const fetchTrips = async () => {
+            setLoading(true)
+            setError(null)
+            try {
+                const response = await api.get("/trips")
+                setTrips(Array.isArray(response.data) ? response.data : [])
+            } catch (err) {
+                console.error(err)
+                setError("Não foi possível carregar os voos agora.")
+            } finally {
+                setLoading(false)
+            }
+        }
+
+        fetchTrips()
+    }, [])
+
+    const flights = useMemo<Flight[]>(() => {
+        const formatter = new Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "BRL"
+        })
+
+        return trips.map((trip) => {
+            const isNational = trip.fromCity?.country === trip.toCity?.country
+            const type: FlightType = isNational ? "Nacional" : "Internacional"
+            const status: FlightStatus =
+                trip.availableSeats <= 0
+                    ? { label: "Lotado", className: "lotado" }
+                    : trip.availableSeats < 10
+                        ? { label: "Últimas vagas", className: "ultimas-vagas" }
+                        : { label: "Disponível", className: "disponivel" }
+
+            return {
+                id: trip.id,
+                code: `CRY-${trip.id.toString().padStart(3, "0")}`,
+                origin: `${trip.fromCity?.name ?? "Origem"} (${trip.fromCity?.country ?? "-"})`,
+                destination: `${trip.toCity?.name ?? "Destino"} (${trip.toCity?.country ?? "-"})`,
+                departure: formatTime(trip.departureDate),
+                price: formatter.format(trip.basePrice ?? 0),
+                seats: trip.availableSeats ?? 0,
+                status,
+                type
+            }
+        })
+    }, [trips])
 
     const filteredFlights = useMemo(() => {
         const normalizedSearch = searchTerm.trim().toLowerCase()
@@ -103,15 +122,16 @@ function AdminFlights(){
                 flight.code,
                 flight.origin,
                 flight.destination,
-                flight.aircraft,
-                flight.status
+                flight.price,
+                flight.status.label,
+                flight.type
             ]
                 .join(" ")
                 .toLowerCase()
 
             return matchesType && searchable.includes(normalizedSearch)
         })
-    }, [activeType, searchTerm])
+    }, [activeType, searchTerm, flights])
 
     const handleTypeToggle = () => {
         setActiveType((current) => (current === "Nacional" ? "Internacional" : "Nacional"))
@@ -153,7 +173,7 @@ function AdminFlights(){
                         <Icons.Search/>
                         <input
                             type="text"
-                            placeholder="Buscar por voo, origem, destino ou aeronave"
+                            placeholder="Buscar por voo, origem, destino ou tarifa"
                             value={searchTerm}
                             onChange={(event) => setSearchTerm(event.target.value)}
                         />
@@ -167,8 +187,9 @@ function AdminFlights(){
                                 <th>Código</th>
                                 <th>Origem</th>
                                 <th>Destino</th>
-                                <th>Aeronave</th>
                                 <th>Partida</th>
+                                <th>Tarifa</th>
+                                <th>Assentos</th>
                                 <th>Status</th>
                                 <th>
                                     <button
@@ -188,11 +209,12 @@ function AdminFlights(){
                                     <td>{flight.code}</td>
                                     <td>{flight.origin}</td>
                                     <td>{flight.destination}</td>
-                                    <td>{flight.aircraft}</td>
                                     <td>{flight.departure}</td>
+                                    <td>{flight.price}</td>
+                                    <td>{flight.seats}</td>
                                     <td>
-                                        <span className={`admin-flight-status ${flight.status.toLowerCase()}`}>
-                                            {flight.status}
+                                        <span className={`admin-flight-status ${flight.status.className}`}>
+                                            {flight.status.label}
                                         </span>
                                     </td>
                                     <td>
@@ -202,10 +224,17 @@ function AdminFlights(){
                             ))}
                         </tbody>
                     </table>
-                    {filteredFlights.length === 0 && (
+                    {error && <p className="admin-flights-empty-text">{error}</p>}
+                    {!loading && !error && filteredFlights.length === 0 && (
                         <div className="admin-flights-empty">
                             <Icons.EventBusyOutlined/>
                             <p>Nenhum voo encontrado com os filtros atuais.</p>
+                        </div>
+                    )}
+                    {loading && (
+                        <div className="admin-flights-empty">
+                            <Icons.FlightTakeoff/>
+                            <p>Carregando voos...</p>
                         </div>
                     )}
                 </section>
