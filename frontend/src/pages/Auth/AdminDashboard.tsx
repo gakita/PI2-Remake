@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react"
 import * as Icons from "@mui/icons-material"
 import Sidebar from "../../components/Sidebar"
 import api from "../../Server"
+import { useNavigate } from "react-router-dom"
 
 type City = {
     id: number
@@ -50,6 +51,7 @@ const sortTimeValue = (value: string) => {
 
 function AdminDashboard(){
     const [sidebarOpen, setSidebarOpen] = useState(true)
+    const navigate = useNavigate()
     const [metrics, setMetrics] = useState<MetricState>({
         trips: 0,
         routes: 0,
@@ -194,19 +196,19 @@ function AdminDashboard(){
                     <div className="admin-panel">
                         <h3>Atalhos rápidos</h3>
                         <div className="admin-shortcuts">
-                            <button>
+                            <button type="button" onClick={() => navigate("/admin/voos")}>
                                 <Icons.ConnectingAirports/>
                                 Gerenciar voos
                             </button>
-                            <button>
+                            <button type="button" onClick={() => navigate("/admin/cidades")}>
                                 <Icons.Apartment/>
                                 Cidades e hubs
                             </button>
-                            <button>
+                            <button type="button" onClick={() => navigate("/admin/usuarios")}>
                                 <Icons.PersonOutline/>
                                 Usuários e permissões
                             </button>
-                            <button>
+                            <button type="button" onClick={() => navigate("/admin/configuracoes")}>
                                 <Icons.SettingsOutlined/>
                                 Configurações
                             </button>

@@ -73,6 +73,26 @@
   --color-dark-warning: #eab648;                /* Status alerta/atrasado */
 }
 
+:root[data-theme="dark"]{
+  --color-background-primary: var(--color-dark-background-primary);
+  --color-background-secondary: var(--color-dark-background-secondary);
+  --color-text-primary: var(--color-dark-text-main);
+  --color-text-secondary: var(--color-dark-text-muted);
+  --color-text-tertiary: #6b7b85;
+  --color-border: var(--color-dark-border);
+  --color-primary-light: rgba(35, 170, 255, 0.15);
+}
+
+:root[data-theme="light"]{
+  --color-background-primary: #FFFFFF;
+  --color-background-secondary: #F7FAFC;
+  --color-text-primary: #1A202C;
+  --color-text-secondary: #4A5568;
+  --color-text-tertiary: #718096;
+  --color-border: #E2E8F0;
+  --color-primary-light: #E6F7FF;
+}
+
 body{
     font-family: "Poppins", sans-serif;
     background-color: var(--color-background-primary);
