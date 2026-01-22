@@ -4,11 +4,14 @@ import './index.css'
 
 import RoutesApp from './routes/routes.tsx'
 import { AuthProvider } from './hooks/AuthContext.tsx'
+import { ThemeProvider } from './hooks/ThemeContext.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <AuthProvider>
-      <RoutesApp />
-    </AuthProvider>
+    <ThemeProvider>
+      <AuthProvider>
+        <RoutesApp />
+      </AuthProvider>
+    </ThemeProvider>
   </StrictMode>,
 )

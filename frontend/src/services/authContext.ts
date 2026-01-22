@@ -12,13 +12,15 @@ interface AuthContextData {
     token?: string | null;
     login: (userData: User, tokenValue: string) => void;
     logout: () => void;
+    updateUser: (userData: Partial<User>) => void;
 }
 
 export const AuthContext = createContext<AuthContextData>({
     user:null,
     token:null,
     login: () => {},
-    logout: () => {}
+    logout: () => {},
+    updateUser: () => {}
 })
 
 export const useAuth = () => useContext(AuthContext);

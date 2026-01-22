@@ -1,0 +1,210 @@
+.admin-layout.admin-management{
+    background-color: var(--color-background-secondary);
+    color: var(--color-text-primary);
+}
+
+.admin-management-topbar{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.admin-management-toolbar{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.admin-management-search{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .65rem 1rem;
+    background-color: var(--color-background-primary);
+    border-radius: .75rem;
+    border: 1px solid var(--color-border);
+    min-width: 260px;
+    color: var(--color-text-secondary);
+}
+
+.admin-management-search input{
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--color-text-primary);
+    width: 100%;
+    font-size: .95rem;
+}
+
+.admin-management-filter{
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    color: var(--color-text-secondary);
+}
+
+.admin-management-filter select{
+    padding: .55rem .75rem;
+    border-radius: .6rem;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-background-primary);
+    color: var(--color-text-primary);
+}
+
+.admin-management-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.admin-management-panel{
+    background-color: var(--color-background-primary);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 10px 20px rgba(15, 23, 42, 0.04);
+}
+
+.admin-management-panel h2{
+    margin-bottom: 1.25rem;
+}
+
+.admin-management-form{
+    display: grid;
+    gap: 1rem;
+}
+
+.admin-management-form label{
+    font-weight: 600;
+    margin-bottom: .35rem;
+    display: block;
+    color: var(--color-text-secondary);
+}
+
+.admin-management-form input,
+.admin-management-form select{
+    width: 100%;
+    padding: .65rem .8rem;
+    border-radius: .6rem;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-background-secondary);
+    color: var(--color-text-primary);
+}
+
+.admin-management-form-actions{
+    display: flex;
+    gap: .75rem;
+    flex-wrap: wrap;
+}
+
+.admin-management-table{
+    width: 100%;
+    border-collapse: collapse;
+    color: var(--color-text-primary);
+}
+
+.admin-management-table th,
+.admin-management-table td{
+    text-align: left;
+    padding: .85rem .75rem;
+    border-bottom: 1px solid var(--color-border);
+    font-size: .95rem;
+}
+
+.admin-management-table th{
+    color: var(--color-text-secondary);
+    font-weight: 600;
+}
+
+.admin-management-table th button{
+    border: none;
+    background: transparent;
+    color: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: .35rem;
+}
+
+.admin-management-table th button.is-active{
+    color: var(--color-primary);
+}
+
+.admin-management-table tbody tr:hover{
+    background-color: var(--color-primary-light);
+}
+
+.admin-table-actions{
+    display: flex;
+    gap: .5rem;
+}
+
+.admin-table-actions button{
+    border: 1px solid var(--color-border);
+    background-color: transparent;
+    border-radius: .5rem;
+    padding: .35rem;
+    cursor: pointer;
+    color: var(--color-text-secondary);
+}
+
+.admin-table-actions button:hover{
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.admin-pill{
+    display: inline-flex;
+    align-items: center;
+    padding: .2rem .6rem;
+    border-radius: 999px;
+    font-size: .8rem;
+    font-weight: 600;
+}
+
+.admin-pill.success{
+    background-color: rgba(72, 187, 120, 0.2);
+    color: var(--color-status-available);
+}
+
+.admin-pill.warning{
+    background-color: rgba(234, 182, 72, 0.2);
+    color: var(--color-dark-warning);
+}
+
+.admin-pill.danger{
+    background-color: rgba(229, 62, 62, 0.2);
+    color: var(--color-danger);
+}
+
+.admin-management-empty{
+    margin-top: 1rem;
+    color: var(--color-text-secondary);
+}
+
+@media (max-width: 960px){
+    .admin-management-topbar{
+        flex-direction: column;
+    }
+
+    .admin-management-toolbar{
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .admin-management-search{
+        width: 100%;
+    }
+
+    .admin-management-table{
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}

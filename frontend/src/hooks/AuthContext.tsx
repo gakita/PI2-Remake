@@ -28,8 +28,19 @@ export function AuthProvider({ children}: {children: React.ReactNode}){
         localStorage.removeItem('user')
     }
 
+    function updateUser(userData: Partial<User>){
+        setUser((currentUser) => {
+            if(!currentUser){
+                return currentUser
+            }
+            const updatedUser = { ...currentUser, ...userData }
+            localStorage.setItem('user', JSON.stringify(updatedUser))
+            return updatedUser
+        })
+    }
+
     return(
-        <AuthContext.Provider value={{user, token, login, logout}}>
+        <AuthContext.Provider value={{user, token, login, logout, updateUser}}>
             {children}
         </AuthContext.Provider>
     )
