@@ -1,16 +1,16 @@
 .admin-layout.admin-flights{
-    background-color: var(--color-dark-background-primary);
-    color: var(--color-dark-text-main);
+    background-color: var(--color-background-secondary);
+    color: var(--color-text-primary);
 }
 
 .admin-layout.admin-flights .admin-main{
-    background-color: var(--color-dark-background-primary);
+    background-color: var(--color-background-secondary);
 }
 
 .admin-layout.admin-flights h1,
 .admin-layout.admin-flights h2,
 .admin-layout.admin-flights h3{
-    color: var(--color-dark-text-main);
+    color: var(--color-text-primary);
 }
 
 .admin-flights-topbar{
@@ -22,7 +22,7 @@
 }
 
 .admin-flights-subtitle{
-    color: var(--color-dark-text-muted);
+    color: var(--color-text-secondary);
     margin-top: .5rem;
     max-width: 36rem;
 }
@@ -39,16 +39,16 @@
 .admin-flights-tabs{
     display: flex;
     gap: .75rem;
-    background-color: var(--color-dark-background-secondary);
+    background-color: var(--color-background-primary);
     padding: .35rem;
     border-radius: 999px;
-    border: 1px solid var(--color-dark-border);
+    border: 1px solid var(--color-border);
 }
 
 .admin-flights-tab{
     border: none;
     background: transparent;
-    color: var(--color-dark-text-muted);
+    color: var(--color-text-secondary);
     font-weight: 600;
     padding: .55rem 1.25rem;
     border-radius: 999px;
@@ -57,7 +57,7 @@
 }
 
 .admin-flights-tab.active{
-    background-color: var(--color-dark-blue-highlight);
+    background-color: var(--color-primary);
     color: var(--color-dark-text-main);
 }
 
@@ -66,50 +66,50 @@
     align-items: center;
     gap: .5rem;
     padding: .6rem 1rem;
-    background-color: var(--color-dark-input-bg);
+    background-color: var(--color-background-primary);
     border-radius: .75rem;
-    border: 1px solid var(--color-dark-border);
+    border: 1px solid var(--color-border);
     min-width: 260px;
-    color: var(--color-dark-text-muted);
+    color: var(--color-text-secondary);
 }
 
 .admin-flights-search input{
     background: transparent;
     border: none;
     outline: none;
-    color: var(--color-dark-text-main);
+    color: var(--color-text-primary);
     width: 100%;
     font-size: .95rem;
 }
 
 .admin-flights-table-wrapper{
-    background-color: var(--color-dark-background-secondary);
+    background-color: var(--color-background-primary);
     border-radius: 1rem;
     padding: 1.5rem;
-    border: 1px solid var(--color-dark-border);
+    border: 1px solid var(--color-border);
 }
 
 .admin-flights-table{
     width: 100%;
     border-collapse: collapse;
-    color: var(--color-dark-text-main);
+    color: var(--color-text-primary);
 }
 
 .admin-flights-table th,
 .admin-flights-table td{
     text-align: left;
     padding: .9rem .75rem;
-    border-bottom: 1px solid var(--color-dark-border);
+    border-bottom: 1px solid var(--color-border);
     font-size: .95rem;
 }
 
 .admin-flights-table th{
     font-weight: 600;
-    color: var(--color-dark-text-muted);
+    color: var(--color-text-secondary);
 }
 
 .admin-flights-table tbody tr:hover{
-    background-color: rgba(35, 170, 255, 0.08);
+    background-color: var(--color-primary-light);
 }
 
 .admin-flights-type-toggle{
@@ -118,16 +118,16 @@
     gap: .35rem;
     padding: .35rem .75rem;
     border-radius: .6rem;
-    border: 1px solid var(--color-dark-border);
+    border: 1px solid var(--color-border);
     background-color: transparent;
-    color: var(--color-dark-text-main);
+    color: var(--color-text-primary);
     cursor: pointer;
     transition: .3s ease;
 }
 
 .admin-flights-type-toggle:hover{
-    border-color: var(--color-dark-blue-highlight);
-    color: var(--color-dark-blue-highlight-alt);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
 }
 
 .admin-flight-tag{
@@ -135,8 +135,8 @@
     align-items: center;
     padding: .3rem .75rem;
     border-radius: 999px;
-    background-color: rgba(35, 170, 255, 0.15);
-    color: var(--color-dark-blue-highlight-alt);
+    background-color: var(--color-primary-light);
+    color: var(--color-primary-dark);
     font-weight: 600;
     font-size: .8rem;
 }
@@ -148,28 +148,23 @@
     border-radius: .6rem;
     font-weight: 600;
     font-size: .8rem;
-    background-color: var(--color-dark-card-bg);
-    color: var(--color-dark-text-main);
+    background-color: var(--color-background-secondary);
+    color: var(--color-text-primary);
 }
 
-.admin-flight-status.embarque{
-    background-color: rgba(234, 182, 72, 0.2);
-    color: var(--color-dark-warning);
+.admin-flight-status.disponivel{
+    background-color: var(--color-primary-light);
+    color: var(--color-primary-dark);
 }
 
-.admin-flight-status.pontual{
-    background-color: rgba(55, 201, 147, 0.2);
-    color: var(--color-dark-success);
+.admin-flight-status.ultimas-vagas{
+    background-color: rgba(245, 184, 46, 0.2);
+    color: var(--color-accent);
 }
 
-.admin-flight-status.confirmado{
-    background-color: rgba(35, 170, 255, 0.2);
-    color: var(--color-dark-blue-highlight-alt);
-}
-
-.admin-flight-status.aguardando{
-    background-color: rgba(150, 163, 171, 0.2);
-    color: var(--color-dark-text-muted);
+.admin-flight-status.lotado{
+    background-color: rgba(229, 62, 62, 0.15);
+    color: var(--color-danger);
 }
 
 .admin-flights-empty{
@@ -178,11 +173,16 @@
     align-items: center;
     gap: .5rem;
     margin-top: 1.5rem;
-    color: var(--color-dark-text-muted);
+    color: var(--color-text-secondary);
 }
 
 .admin-flights-empty svg{
     font-size: 2rem;
+}
+
+.admin-flights-empty-text{
+    margin-top: 1rem;
+    color: var(--color-text-secondary);
 }
 
 @media (max-width: 960px){
